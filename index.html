@@ -121,8 +121,10 @@
     .filter-button { padding: 8px 12px; border: 1px solid var(--line); border-radius: 999px; color: var(--ink-2); background: white; font-size: .73rem; font-weight: 710; cursor: pointer; transition: color .18s, background .18s, border-color .18s; }
     .filter-button:hover, .filter-button[aria-pressed="true"] { border-color: var(--ink); color: white; background: var(--ink); }
     .events-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 14px; }
+    .event-card-link { display: block; color: inherit; text-decoration: none; }
+    .event-card-link:focus-visible { outline: 3px solid var(--teal-dark); outline-offset: 3px; border-radius: 21px; }
     .event-card { position: relative; min-height: 295px; padding: 25px; border: 1px solid var(--line); border-radius: 18px; background: white; box-shadow: 0 8px 28px rgba(7,31,49,.035); }
-    .event-card[hidden] { display: none; }
+    .event-card[hidden], .event-card-link[hidden] { display: none; }
     .event-topline { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 24px; }
     .event-type { display: inline-flex; align-items: center; gap: 7px; color: var(--teal-dark); font-size: .7rem; font-weight: 820; letter-spacing: .06em; text-transform: uppercase; }
     .event-type svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
@@ -166,7 +168,6 @@
     .footer-row { display: flex; justify-content: space-between; align-items: center; gap: 18px; }
     .footer-brand { color: white; font-weight: 740; }
     .footer-row a { color: var(--lime); text-decoration: none; white-space: nowrap; }
-    .event-card-link { display: block; color: inherit; text-decoration: none; }
     html[dir="rtl"] body { text-align: right; }
     html[dir="rtl"] .nav, html[dir="rtl"] .section-heading, html[dir="rtl"] .showcase-tools, html[dir="rtl"] .student-head, html[dir="rtl"] .hero-footnote .wrap { direction: rtl; }
     html[dir="rtl"] .hero-grid { direction: rtl; }
@@ -389,64 +390,85 @@
             <button class="filter-button" type="button" data-filter="seminar" aria-pressed="false" data-i18n="filterSeminars">Seminars</button>
           </div>
         </div>
-
         <div class="events-grid" id="events-grid" aria-live="polite">
           <article class="event-card" data-category="talk poster">
-            <div class="event-topline">
-              <span class="event-type">
-                <svg aria-hidden="true" viewBox="0 0 24 24">
-                  <path d="M4 4h16v12H4zM8 20h8M12 16v4M8 9h8M8 12h5"/>
-                </svg>
-                <span data-i18n="event1Type">Research talk + poster</span>
-              </span>
-              <time class="event-date" datetime="2026-11-03">Nov 3, 2026</time>
-            </div>
-        
+            <div class="event-topline"><span class="event-type"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 4h16v12H4zM8 20h8M12 16v4M8 9h8M8 12h5"/></svg><span data-i18n="event1Type">Research talk + poster</span></span><time class="event-date" datetime="2026-11-03">Nov 3, 2026</time></div>
             <h3>MCG–GS Community Engaged Research Conference</h3>
-            <p class="event-project">
-              Toward Reliable Non-Invasive Glucose Monitoring: A COMSOL-Based Raman–BRS Digital Twin
-            </p>
-            <p class="event-description" data-i18n="event1Text">
-              A research talk and poster on spectral modeling, glucose calibration, and measurement uncertainty for a non-invasive sensing digital twin.
-            </p>
-            <div class="event-footer">
-              <span data-i18n="event1Tag1">Conference presentation</span>
-              <span data-i18n="event1Tag2">Talk &amp; poster</span>
-            </div>
+            <p class="event-project">Toward Reliable Non-Invasive Glucose Monitoring: A COMSOL-Based Raman–BRS Digital Twin</p>
+            <p class="event-description" data-i18n="event1Text">A research talk and poster on spectral modeling, glucose calibration, and measurement uncertainty for a non-invasive sensing digital twin.</p>
+            <div class="event-footer"><span data-i18n="event1Tag1">Conference presentation</span><span data-i18n="event1Tag2">Talk &amp; poster</span></div>
           </article>
-        
-          <a
-            class="event-card-link"
-            href="https://www.comsol.com/paper/comsol-digital-twin-for-ramannir-non-invasive-glucose-sensing-from-prototype-to-validation-154632"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+
+          <a class="event-card-link" href="https://www.comsol.com/paper/comsol-digital-twin-for-ramannir-non-invasive-glucose-sensing-from-prototype-to-validation-154632" target="_blank" rel="noopener noreferrer">
             <article class="event-card" data-category="poster">
-              <div class="event-topline">
-                <span class="event-type">
-                  <svg aria-hidden="true" viewBox="0 0 24 24">
-                    <path d="M5 3h14v18H5zM8 7h8M8 11h8M8 15h5"/>
-                  </svg>
-                  <span data-i18n="event2Type">Technical paper &amp; poster</span>
-                </span>
-                <time class="event-date" datetime="2026">2026</time>
-              </div>
-        
+              <div class="event-topline"><span class="event-type"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 3h14v18H5zM8 7h8M8 11h8M8 15h5"/></svg><span data-i18n="event2Type">Accepted research poster</span></span><time class="event-date" datetime="2026">2026</time></div>
               <h3>COMSOL Conference Boston 2026</h3>
-              <p class="event-project">
-                COMSOL Digital Twin For Raman-NIR Non-Invasive Glucose Sensing: From Prototype To Validation
-              </p>
-              <p class="event-description" data-i18n="event2Text">
-                Poster presentation featuring a physics-based digital twin for Raman–NIR spectral modeling and glucose calibration.
-              </p>
-              <div class="event-footer">
-                <span data-i18n="event2Tag1">Conference presentation</span>
-                <span data-i18n="event2Tag2">Talk &amp; poster</span>
-              </div>
+              <p class="event-project">Toward Reliable Non-Invasive Glucose Monitoring: A COMSOL-Based Raman–BRS Digital Twin</p>
+              <p class="event-description" data-i18n="event2Text">Poster presentation featuring a physics-based digital twin for Raman–NIR spectral modeling and glucose calibration.</p>
+              <div class="event-footer"><span data-i18n="event2Tag1">Conference poster</span><span data-i18n="event2Tag2">Accepted</span></div>
+            </article>
+          </a>
+
+          <a class="event-card-link" href="https://www.researchgate.net/publication/403623182_SoilFusionNet_AI-Driven_Soil_Health_Monitoring_Using_UAV_Imagery_and_Ground_Sensors_for_Sustainable_Irrigation" target="_blank" rel="noopener noreferrer">
+            <article class="event-card" data-category="poster">
+              <div class="event-topline"><span class="event-type"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 3h14v18H5zM8 7h8M8 11h8M8 15h5"/></svg><span data-i18n="posterType">Research poster</span></span><time class="event-date" datetime="2026-03-31">Mar 31 – Apr 2, 2026</time></div>
+              <h3>2026 AI in Agriculture Conference</h3>
+              <p class="event-project">SoilFusionNet: AI-Driven Soil Health Monitoring Using UAV Imagery and Ground Sensors for Sustainable Irrigation</p>
+              <p class="event-description" data-i18n="event3Text">Combines UAV imagery and ground sensors to estimate soil health and support precision irrigation.</p>
+              <div class="event-footer"><span data-i18n="posterTag1">Conference poster</span><span data-i18n="posterTag2">ResearchGate record</span></div>
+            </article>
+          </a>
+
+          <a class="event-card-link" href="https://www.researchgate.net/publication/400214079_QSen-FMoE_A_Federated_Mixture_of_Experts_Framework_for_Quantum-Driven_Sensing_and_Wearable_Intelligence_in_Body_Area_Networks" target="_blank" rel="noopener noreferrer">
+            <article class="event-card" data-category="poster">
+              <div class="event-topline"><span class="event-type"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 3h14v18H5zM8 7h8M8 11h8M8 15h5"/></svg><span data-i18n="posterType">Research poster</span></span><time class="event-date" datetime="2026">2026</time></div>
+              <h3>MCG–GS Savannah Community Engaged Research Conference</h3>
+              <p class="event-project">QSen-FMoE: A Federated Mixture of Experts Framework for Quantum-Driven Sensing and Wearable Intelligence in Body Area Networks</p>
+              <p class="event-description" data-i18n="event4Text">A federated mixture-of-experts framework for privacy-aware, quantum-driven wearable sensing in body-area networks.</p>
+              <div class="event-footer"><span data-i18n="posterTag1">Conference poster</span><span data-i18n="posterTag2">ResearchGate record</span></div>
+            </article>
+          </a>
+
+          <a class="event-card-link" href="https://www.researchgate.net/publication/406007795_AI-Powered_Quantum_Sensing_for_Non-Invasive_Diabetes_Monitoring_System" target="_blank" rel="noopener noreferrer">
+            <article class="event-card" data-category="poster">
+              <div class="event-topline"><span class="event-type"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 3h14v18H5zM8 7h8M8 11h8M8 15h5"/></svg><span data-i18n="posterType">Research poster</span></span><time class="event-date" datetime="2026">2026</time></div>
+              <h3>GS4 Student Scholars Symposium</h3>
+              <p class="event-project">AI-Powered Quantum Sensing for Non-Invasive Diabetes Monitoring System</p>
+              <p class="event-description" data-i18n="event5Text">A conceptual framework combining AI and quantum-inspired sensing for non-invasive diabetes monitoring.</p>
+              <div class="event-footer"><span data-i18n="posterTag1">Conference poster</span><span data-i18n="posterTag2">ResearchGate record</span></div>
+            </article>
+          </a>
+
+          <a class="event-card-link" href="https://www.researchgate.net/publication/400214272_Stiffness-Driven_Design_of_Membrane_Sensors_For_Broadband_and_Selective_Frequency_Sensing" target="_blank" rel="noopener noreferrer">
+            <article class="event-card" data-category="poster">
+              <div class="event-topline"><span class="event-type"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 3h14v18H5zM8 7h8M8 11h8M8 15h5"/></svg><span data-i18n="posterType">Research poster</span></span><time class="event-date" datetime="2025">2025</time></div>
+              <h3>MCG–GS Savannah Community Engaged Research Conference</h3>
+              <p class="event-project">Stiffness-Driven Design of Membrane Sensors For Broadband and Selective Frequency Sensing</p>
+              <p class="event-description" data-i18n="event6Text">Explores stiffness-graded membrane sensors for broadband, selective frequency sensing, with MATLAB modeling and COMSOL validation.</p>
+              <div class="event-footer"><span data-i18n="posterTag1">Conference poster</span><span data-i18n="posterTag2">ResearchGate record</span></div>
+            </article>
+          </a>
+
+          <a class="event-card-link" href="https://www.researchgate.net/publication/396921673_TWIN_An_Explainable_Multimodal_Transformer_Framework_for_Robust_Detection_of_Deepfakes_and_AI-Generated_Disinformation" target="_blank" rel="noopener noreferrer">
+            <article class="event-card" data-category="poster">
+              <div class="event-topline"><span class="event-type"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 3h14v18H5zM8 7h8M8 11h8M8 15h5"/></svg><span data-i18n="posterType">Research poster</span></span><time class="event-date" datetime="2025-04-16">Apr 16–17, 2025</time></div>
+              <h3>UMass Dartmouth Sigma Xi 29th Annual Research Exhibition</h3>
+              <p class="event-project">TWIN: An Explainable Multimodal Transformer Framework for Robust Detection of Deepfakes and AI-Generated Disinformation</p>
+              <p class="event-description" data-i18n="event7Text">A multimodal transformer framework combining text and visual analysis to explain detection of deepfakes and AI-generated disinformation.</p>
+              <div class="event-footer"><span data-i18n="posterTag1">Conference poster</span><span data-i18n="posterTag2">ResearchGate record</span></div>
+            </article>
+          </a>
+
+          <a class="event-card-link" href="https://www.researchgate.net/publication/396921950_DGM-CAM_A_Lifelong_Editing_Framework_using_Dynamic_Gradient_Masking_and_Conflict-Aware_Merging" target="_blank" rel="noopener noreferrer">
+            <article class="event-card" data-category="poster">
+              <div class="event-topline"><span class="event-type"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 3h14v18H5zM8 7h8M8 11h8M8 15h5"/></svg><span data-i18n="posterType">Research poster</span></span><time class="event-date" datetime="2025-04-16">Apr 16–17, 2025</time></div>
+              <h3>UMass Dartmouth Sigma Xi 29th Annual Research Exhibition</h3>
+              <p class="event-project">DGM-CAM: A Lifelong Editing Framework using Dynamic Gradient Masking and Conflict-Aware Merging</p>
+              <p class="event-description" data-i18n="event8Text">A lifelong model-editing approach using dynamic gradient masking and conflict-aware merging.</p>
+              <div class="event-footer"><span data-i18n="posterTag1">Conference poster</span><span data-i18n="posterTag2">ResearchGate record</span></div>
             </article>
           </a>
         </div>
-       
         <p class="empty-state" id="empty-state" data-i18n="emptyState">No seminar entries yet. New presentations will appear here.</p>
       </div>
     </section>
@@ -526,7 +548,17 @@
         event1Type:"Research talk + poster", event1Text:"A research talk and poster on spectral modeling, glucose calibration, and measurement uncertainty for a non-invasive sensing digital twin.",
         event1Tag1:"Conference presentation", event1Tag2:"Talk & poster",
         event2Type:"Accepted research poster", event2Text:"Poster presentation featuring a physics-based digital twin for Raman–NIR spectral modeling and glucose calibration.",
-        event2Tag1:"Conference poster", event2Tag2:"Accepted", emptyState:"No seminar entries yet. New presentations will appear here.",
+        event2Tag1:"Conference poster", event2Tag2:"Accepted",
+        posterType:"Research poster",
+        posterTag1:"Conference poster",
+        posterTag2:"ResearchGate record",
+        event3Text:"Combines UAV imagery and ground sensors to estimate soil health and support precision irrigation.",
+        event4Text:"A federated mixture-of-experts framework for privacy-aware, quantum-driven wearable sensing in body-area networks.",
+        event5Text:"A conceptual framework combining AI and quantum-inspired sensing for non-invasive diabetes monitoring.",
+        event6Text:"Explores stiffness-graded membrane sensors for broadband, selective frequency sensing, with MATLAB modeling and COMSOL validation.",
+        event7Text:"A multimodal transformer framework combining text and visual analysis to explain detection of deepfakes and AI-generated disinformation.",
+        event8Text:"A lifelong model-editing approach using dynamic gradient masking and conflict-aware merging.",
+        emptyState:"No entries match this filter yet.",
         teamKicker:"People", teamTitle:"A team learning through research.", teamIntro:"Our student researchers work across AI, cybersecurity, health, and data-driven systems.",
         piRole:"Principal Investigator", piBio:"Assistant Professor in the School of Computing at Georgia Southern University. His research develops reliable AI and computational methods for security, health, biology, and sustainable systems.", piEmail:"Email Dr. Rana",
         studentTitle:"Student researchers", studentIntro:"A four-person student team across three degree levels.", phdLabel:"Ph.D. students", mastersLabel:"Master’s student", undergradLabel:"Undergraduate student", teamNote:"Student profiles and project details can be added as the team grows.",
@@ -566,7 +598,17 @@
         event1Type:"গবেষণা আলোচনা + পোস্টার", event1Text:"অ-আক্রমণাত্মক সেন্সিং ডিজিটাল টুইনের জন্য বর্ণালী মডেলিং, গ্লুকোজ ক্যালিব্রেশন এবং পরিমাপের অনিশ্চয়তা নিয়ে আলোচনা ও পোস্টার।",
         event1Tag1:"সম্মেলন উপস্থাপনা", event1Tag2:"আলোচনা ও পোস্টার",
         event2Type:"গৃহীত গবেষণা পোস্টার", event2Text:"রামান–NIR বর্ণালী মডেলিং ও গ্লুকোজ ক্যালিব্রেশনের জন্য পদার্থবিজ্ঞানভিত্তিক ডিজিটাল টুইনের পোস্টার উপস্থাপনা।",
-        event2Tag1:"সম্মেলন পোস্টার", event2Tag2:"গৃহীত", emptyState:"এখনও কোনো সেমিনার যোগ করা হয়নি। নতুন উপস্থাপনাগুলো এখানে দেখা যাবে।",
+        event2Tag1:"সম্মেলন পোস্টার", event2Tag2:"গৃহীত",
+        posterType:"গবেষণা পোস্টার",
+        posterTag1:"সম্মেলন পোস্টার",
+        posterTag2:"ResearchGate-এ দেখুন",
+        event3Text:"UAV-এর ছবি ও মাঠের সেন্সর একত্র করে মাটির স্বাস্থ্য নির্ণয় ও নির্ভুল সেচে সহায়তা করে।",
+        event4Text:"বডি এরিয়া নেটওয়ার্কে গোপনীয়তা-সচেতন, কোয়ান্টাম-নির্ভর wearable sensing-এর জন্য federated Mixture-of-Experts কাঠামো।",
+        event5Text:"AI ও কোয়ান্টাম-অনুপ্রাণিত sensing একত্র করে অ-আক্রমণাত্মক ডায়াবেটিস পর্যবেক্ষণের একটি ধারণাগত কাঠামো।",
+        event6Text:"বিস্তৃত ও নির্বাচিত কম্পাঙ্ক সেন্সিংয়ের জন্য stiffness-graded membrane sensor পরীক্ষা; MATLAB মডেলিং ও COMSOL যাচাই অন্তর্ভুক্ত।",
+        event7Text:"Deepfake ও AI-তৈরি বিভ্রান্তিতথ্য শনাক্ত করতে text ও image বিশ্লেষণ একত্র করা explainable multimodal transformer কাঠামো।",
+        event8Text:"Dynamic gradient masking ও conflict-aware merging ব্যবহার করে ধারাবাহিক model editing-এর কাঠামো।",
+        emptyState:"এই ফিল্টারে এখনো কোনো উপস্থাপনা নেই।",
         teamKicker:"মানুষ", teamTitle:"গবেষণার মাধ্যমে শেখা একটি দল।", teamIntro:"আমাদের শিক্ষার্থী গবেষকেরা AI, সাইবার নিরাপত্তা, স্বাস্থ্য ও তথ্যনির্ভর ব্যবস্থায় কাজ করেন।",
         piRole:"প্রধান গবেষক", piBio:"জর্জিয়া সাউদার্ন ইউনিভার্সিটির স্কুল অব কম্পিউটিংয়ের সহকারী অধ্যাপক। তাঁর গবেষণা নিরাপত্তা, স্বাস্থ্য, জীববিজ্ঞান ও টেকসই ব্যবস্থার জন্য নির্ভরযোগ্য AI ও গণনামূলক পদ্ধতি তৈরি করে।", piEmail:"ড. রানাকে ইমেইল",
         studentTitle:"শিক্ষার্থী গবেষক", studentIntro:"তিনটি ডিগ্রি স্তরে চারজন শিক্ষার্থী গবেষক।", phdLabel:"পিএইচডি শিক্ষার্থী", mastersLabel:"মাস্টার্স শিক্ষার্থী", undergradLabel:"স্নাতক শিক্ষার্থী", teamNote:"দল বড় হলে শিক্ষার্থীদের পরিচিতি ও প্রকল্পের তথ্য যোগ করা যাবে।",
@@ -606,7 +648,17 @@
         event1Type:"محاضرة بحثية + ملصق", event1Text:"محاضرة وملصق حول النمذجة الطيفية ومعايرة الغلوكوز وعدم يقين القياس لتوأم رقمي للاستشعار غير الباضع.",
         event1Tag1:"عرض في مؤتمر", event1Tag2:"محاضرة وملصق",
         event2Type:"ملصق بحثي مقبول", event2Text:"عرض ملصق لتوأم رقمي قائم على الفيزياء للنمذجة الطيفية Raman–NIR ومعايرة الغلوكوز.",
-        event2Tag1:"ملصق مؤتمر", event2Tag2:"مقبول", emptyState:"لا توجد ندوات مضافة بعد. ستظهر العروض الجديدة هنا.",
+        event2Tag1:"ملصق مؤتمر", event2Tag2:"مقبول",
+        posterType:"ملصق بحثي",
+        posterTag1:"ملصق مؤتمر",
+        posterTag2:"عرض في ResearchGate",
+        event3Text:"يجمع بين صور الطائرات المسيّرة ومستشعرات التربة لتقدير صحة التربة ودعم الري الدقيق.",
+        event4Text:"إطار اتحادي لمزيج الخبراء للاستشعار القابل للارتداء، يراعي الخصوصية ويعتمد على الاستشعار الكمومي في شبكات الجسم.",
+        event5Text:"إطار مفاهيمي يجمع الذكاء الاصطناعي والاستشعار المستوحى من الكم لمراقبة السكري دون تدخل جراحي.",
+        event6Text:"يدرس مستشعرات الأغشية ذات التدرج في الصلابة للاستشعار واسع النطاق وانتقاء التردد، مع نمذجة MATLAB والتحقق باستخدام COMSOL.",
+        event7Text:"إطار محوّل متعدد الوسائط يجمع تحليل النص والصورة لتفسير كشف التزييف العميق والتضليل المُنشأ بالذكاء الاصطناعي.",
+        event8Text:"نهج لتحرير النماذج مدى الحياة يستخدم إخفاء التدرجات الديناميكي ودمج التعارضات.",
+        emptyState:"لا توجد عناصر تطابق هذا التصفية بعد.",
         teamKicker:"الأشخاص", teamTitle:"فريق يتعلم من خلال البحث.", teamIntro:"يعمل طلابنا الباحثون في الذكاء الاصطناعي والأمن السيبراني والصحة والأنظمة المعتمدة على البيانات.",
         piRole:"الباحث الرئيسي", piBio:"أستاذ مساعد في مدرسة الحوسبة بجامعة جورجيا الجنوبية. يطوّر بحثه ذكاءً اصطناعياً موثوقاً وأساليب حاسوبية للأمن والصحة والأحياء والأنظمة المستدامة.", piEmail:"راسل د. رانا",
         studentTitle:"الطلاب الباحثون", studentIntro:"فريق من أربعة طلاب عبر ثلاثة مستويات دراسية.", phdLabel:"طلاب دكتوراه", mastersLabel:"طالب ماجستير", undergradLabel:"طالب جامعي", teamNote:"يمكن إضافة نبذات الطلاب وتفاصيل المشاريع مع نمو الفريق.",
@@ -646,7 +698,17 @@
         event1Type:"शोध वार्ता + पोस्टर", event1Text:"गैर-आक्रामक सेंसिंग डिजिटल ट्विन के लिए स्पेक्ट्रल मॉडलिंग, ग्लूकोज़ कैलिब्रेशन और मापन अनिश्चितता पर शोध वार्ता और पोस्टर।",
         event1Tag1:"सम्मेलन प्रस्तुति", event1Tag2:"वार्ता और पोस्टर",
         event2Type:"स्वीकृत शोध पोस्टर", event2Text:"रमन–NIR स्पेक्ट्रल मॉडलिंग और ग्लूकोज़ कैलिब्रेशन के लिए भौतिकी-आधारित डिजिटल ट्विन का पोस्टर।",
-        event2Tag1:"सम्मेलन पोस्टर", event2Tag2:"स्वीकृत", emptyState:"अभी कोई सेमिनार प्रविष्टि नहीं है। नई प्रस्तुतियाँ यहाँ दिखाई जाएँगी।",
+        event2Tag1:"सम्मेलन पोस्टर", event2Tag2:"स्वीकृत",
+        posterType:"शोध पोस्टर",
+        posterTag1:"सम्मेलन पोस्टर",
+        posterTag2:"ResearchGate पर देखें",
+        event3Text:"UAV छवियों और जमीनी सेंसरों को मिलाकर मिट्टी के स्वास्थ्य का अनुमान और सटीक सिंचाई में सहायता करता है।",
+        event4Text:"बॉडी एरिया नेटवर्क में गोपनीयता-सचेत, क्वांटम-संचालित पहनने योग्य सेंसिंग के लिए फेडरेटेड Mixture-of-Experts ढाँचा।",
+        event5Text:"गैर-आक्रामक मधुमेह निगरानी के लिए AI और क्वांटम-प्रेरित सेंसिंग को जोड़ने वाला एक वैचारिक ढाँचा।",
+        event6Text:"व्यापक और चयनात्मक आवृत्ति संवेदन के लिए graded stiffness membrane sensors का अध्ययन; MATLAB मॉडलिंग और COMSOL सत्यापन शामिल है।",
+        event7Text:"डीपफेक और AI-निर्मित दुष्प्रचार का पता लगाने को समझाने हेतु पाठ और दृश्य विश्लेषण को मिलाने वाला मल्टीमॉडल ट्रांसफॉर्मर ढाँचा।",
+        event8Text:"Dynamic gradient masking और conflict-aware merging का उपयोग करके निरंतर मॉडल संपादन की रूपरेखा।",
+        emptyState:"इस फ़िल्टर से मेल खाने वाली कोई प्रविष्टि अभी नहीं है।",
         teamKicker:"लोग", teamTitle:"अनुसंधान से सीखती एक टीम।", teamIntro:"हमारे छात्र शोधकर्ता AI, साइबर सुरक्षा, स्वास्थ्य और डेटा-आधारित प्रणालियों पर काम करते हैं।",
         piRole:"प्रधान अन्वेषक", piBio:"जॉर्जिया सदर्न यूनिवर्सिटी के स्कूल ऑफ कंप्यूटिंग में सहायक प्रोफेसर। उनका शोध सुरक्षा, स्वास्थ्य, जीवविज्ञान और सतत प्रणालियों के लिए विश्वसनीय AI और कम्प्यूटेशनल विधियाँ विकसित करता है।", piEmail:"डॉ. राणा को ईमेल करें",
         studentTitle:"छात्र शोधकर्ता", studentIntro:"तीन डिग्री स्तरों में चार छात्र शोधकर्ताओं की टीम।", phdLabel:"पीएच.डी. छात्र", mastersLabel:"मास्टर’s छात्र", undergradLabel:"स्नातक छात्र", teamNote:"टीम के बढ़ने पर छात्र परिचय और परियोजना विवरण जोड़े जा सकते हैं।",
@@ -686,7 +748,17 @@
         event1Type:"Charla de investigación + póster", event1Text:"Charla y póster sobre modelado espectral, calibración de glucosa e incertidumbre de medición para un gemelo digital de sensado no invasivo.",
         event1Tag1:"Presentación en conferencia", event1Tag2:"Charla y póster",
         event2Type:"Póster de investigación aceptado", event2Text:"Póster sobre un gemelo digital basado en física para modelado espectral Raman–NIR y calibración de glucosa.",
-        event2Tag1:"Póster de conferencia", event2Tag2:"Aceptado", emptyState:"Aún no hay seminarios registrados. Las nuevas presentaciones aparecerán aquí.",
+        event2Tag1:"Póster de conferencia", event2Tag2:"Aceptado",
+        posterType:"Póster de investigación",
+        posterTag1:"Póster de congreso",
+        posterTag2:"Ver en ResearchGate",
+        event3Text:"Combina imágenes de UAV y sensores terrestres para estimar la salud del suelo y apoyar el riego de precisión.",
+        event4Text:"Marco federado de mezcla de expertos para sensores portátiles cuánticos que protegen la privacidad en redes corporales.",
+        event5Text:"Marco conceptual que combina IA y sensores inspirados en la física cuántica para el monitoreo no invasivo de la diabetes.",
+        event6Text:"Estudia sensores de membrana con rigidez graduada para detectar frecuencias amplias y selectivas, con modelado en MATLAB y validación en COMSOL.",
+        event7Text:"Marco de transformador multimodal que combina texto e imágenes para explicar la detección de deepfakes y desinformación generada por IA.",
+        event8Text:"Enfoque de edición continua de modelos mediante enmascaramiento dinámico de gradientes y fusión consciente de conflictos.",
+        emptyState:"Aún no hay elementos que coincidan con este filtro.",
         teamKicker:"Personas", teamTitle:"Un equipo que aprende investigando.", teamIntro:"Nuestro equipo estudiantil trabaja en IA, ciberseguridad, salud y sistemas basados en datos.",
         piRole:"Investigador principal", piBio:"Profesor asistente en la Escuela de Computación de Georgia Southern University. Su investigación desarrolla IA confiable y métodos computacionales para seguridad, salud, biología y sistemas sostenibles.", piEmail:"Escribir al Dr. Rana",
         studentTitle:"Estudiantes investigadores", studentIntro:"Un equipo de cuatro estudiantes en tres niveles académicos.", phdLabel:"Estudiantes de doctorado", mastersLabel:"Estudiante de maestría", undergradLabel:"Estudiante de grado", teamNote:"Los perfiles y proyectos de los estudiantes se añadirán a medida que crezca el equipo.",
@@ -734,7 +806,8 @@
         eventCards.forEach(function(card) {
           const categories = card.getAttribute("data-category").split(" ");
           const show = selected === "all" || categories.includes(selected);
-          card.hidden = !show;
+          const cardWrapper = card.closest(".event-card-link") || card;
+          cardWrapper.hidden = !show;
           if (show) visible += 1;
         });
         emptyState.classList.toggle("visible", visible === 0);
