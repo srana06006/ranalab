@@ -144,8 +144,13 @@
     .pi-mark { position: relative; z-index: 1; display: grid; place-items: center; width: 72px; height: 72px; margin-bottom: 29px; border-radius: 22px 22px 22px 6px; color: var(--ink); background: var(--lime); font-size: 1.25rem; font-weight: 830; }
     .pi-card small { position: relative; z-index: 1; color: rgba(255,255,255,.65); font-size: .68rem; font-weight: 760; letter-spacing: .13em; text-transform: uppercase; }
     .pi-card h3 { position: relative; z-index: 1; max-width: 320px; margin-top: 8px; color: white; font-size: 1.58rem; }
+    .pi-card h3 a { color: inherit; text-decoration: none; }
+    .pi-card h3 a:hover { text-decoration: underline; text-decoration-color: var(--lime); text-underline-offset: 4px; }
+    .pi-card h3 a span { color: var(--lime); font-size: .72em; }
     .pi-card p { position: relative; z-index: 1; max-width: 365px; margin: 14px 0 0; color: rgba(255,255,255,.76); font-size: .88rem; line-height: 1.7; }
     .pi-card a { position: relative; z-index: 1; display: inline-flex; gap: 7px; margin-top: 22px; color: var(--lime); font-size: .84rem; font-weight: 730; text-decoration: none; }
+    .pi-card .pi-email-address { margin-top: 9px; color: rgba(255,255,255,.68); font-size: .76rem; }
+    .pi-card .pi-email-address a { display: inline; margin: 0; color: inherit; font-size: inherit; font-weight: 650; text-decoration: underline; text-underline-offset: 3px; }
     .student-panel { padding: 29px; border: 1px solid rgba(16,42,67,.1); border-radius: 20px; background: rgba(255,255,255,.74); }
     .student-head { display: flex; justify-content: space-between; align-items: start; gap: 15px; margin-bottom: 21px; }
     .student-head h3 { font-size: 1.32rem; }
@@ -163,7 +168,9 @@
     .join-section .section-kicker { color: var(--lime); }
     .join-section h2 { max-width: 700px; font-size: clamp(2rem, 3.8vw, 3.15rem); }
     .join-section p { max-width: 670px; margin: 14px 0 0; color: rgba(255,255,255,.76); }
+    .contact-actions { display: flex; flex: 0 0 auto; flex-direction: column; align-items: flex-end; gap: 9px; }
     .join-section .button { flex: 0 0 auto; color: var(--ink); background: var(--lime); }
+    .contact-email { color: rgba(255,255,255,.78); font-size: .76rem; text-decoration: underline; text-underline-offset: 3px; }
     .site-footer { padding: 25px 0; color: rgba(255,255,255,.65); background: #0c2234; font-size: .8rem; }
     .footer-row { display: flex; justify-content: space-between; align-items: center; gap: 18px; }
     .footer-brand { color: white; font-weight: 740; }
@@ -216,6 +223,7 @@
       .showcase-tools { align-items: flex-start; flex-direction: column; }
       .event-card { min-height: 0; padding: 22px; }
       .join-row { align-items: flex-start; flex-direction: column; }
+      .contact-actions { align-items: flex-start; }
       .join-section .button { margin-top: 3px; }
       .footer-row { align-items: flex-start; flex-direction: column; gap: 6px; }
       html[dir="rtl"] .hero-footnote .wrap { align-items: flex-start; }
@@ -483,9 +491,10 @@
           <article class="pi-card">
             <div class="pi-mark" aria-hidden="true">SR</div>
             <small data-i18n="piRole">Principal Investigator</small>
-            <h3>Md Shohel Rana, Ph.D.</h3>
+            <h3><a href="https://www.msrana.info/" target="_blank" rel="noopener noreferrer">Md Shohel Rana, Ph.D.<span aria-hidden="true"> ↗</span></a></h3>
             <p data-i18n="piBio">Assistant Professor in the School of Computing at Georgia Southern University. His research develops reliable AI and computational methods for security, health, biology, and sustainable systems.</p>
-            <a href="mailto:mrana@georgiasouthern.edu"><span data-i18n="piEmail">Email Dr. Rana</span><span aria-hidden="true">→</span></a>
+            <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=mrana%40georgiasouthern.edu" target="_blank" rel="noopener noreferrer"><span data-i18n="piEmail">Email Dr. Rana</span><span aria-hidden="true">→</span></a>
+            <p class="pi-email-address"><a href="mailto:mrana@georgiasouthern.edu">mrana@georgiasouthern.edu</a></p>
           </article>
           <div class="student-panel">
             <div class="student-head">
@@ -506,7 +515,10 @@
     <section class="join-section" id="contact" aria-labelledby="contact-title">
       <div class="wrap join-row">
         <div><p class="section-kicker" data-i18n="contactKicker">Connect with us</p><h2 id="contact-title" data-i18n="contactTitle">Have a question worth investigating?</h2><p data-i18n="contactText">Students interested in research and colleagues exploring collaboration are welcome to get in touch.</p></div>
-        <a class="button" href="mailto:mrana@georgiasouthern.edu?subject=RANA%20Lab%20inquiry"><span data-i18n="contactButton">Contact RANA Lab</span><span class="arrow" aria-hidden="true">→</span></a>
+        <div class="contact-actions">
+          <a class="button" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=mrana%40georgiasouthern.edu&amp;su=RANA%20Lab%20inquiry" target="_blank" rel="noopener noreferrer"><span data-i18n="contactButton">Contact RANA Lab</span><span class="arrow" aria-hidden="true">→</span></a>
+          <a class="contact-email" href="mailto:mrana@georgiasouthern.edu">mrana@georgiasouthern.edu</a>
+        </div>
       </div>
     </section>
   </main>
