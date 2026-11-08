@@ -166,6 +166,7 @@
     .footer-row { display: flex; justify-content: space-between; align-items: center; gap: 18px; }
     .footer-brand { color: white; font-weight: 740; }
     .footer-row a { color: var(--lime); text-decoration: none; white-space: nowrap; }
+    .event-card-link { display: block; color: inherit; text-decoration: none; }
     html[dir="rtl"] body { text-align: right; }
     html[dir="rtl"] .nav, html[dir="rtl"] .section-heading, html[dir="rtl"] .showcase-tools, html[dir="rtl"] .student-head, html[dir="rtl"] .hero-footnote .wrap { direction: rtl; }
     html[dir="rtl"] .hero-grid { direction: rtl; }
@@ -388,25 +389,64 @@
             <button class="filter-button" type="button" data-filter="seminar" aria-pressed="false" data-i18n="filterSeminars">Seminars</button>
           </div>
         </div>
+
         <div class="events-grid" id="events-grid" aria-live="polite">
           <article class="event-card" data-category="talk poster">
-            <div class="event-topline"><span class="event-type"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 4h16v12H4zM8 20h8M12 16v4M8 9h8M8 12h5"/></svg><span data-i18n="event1Type">Research talk + poster</span></span><time class="event-date" datetime="2026-11-03">Nov 3, 2026</time></div>
+            <div class="event-topline">
+              <span class="event-type">
+                <svg aria-hidden="true" viewBox="0 0 24 24">
+                  <path d="M4 4h16v12H4zM8 20h8M12 16v4M8 9h8M8 12h5"/>
+                </svg>
+                <span data-i18n="event1Type">Research talk + poster</span>
+              </span>
+              <time class="event-date" datetime="2026-11-03">Nov 3, 2026</time>
+            </div>
+        
             <h3>MCG–GS Community Engaged Research Conference</h3>
-            <p class="event-project">Toward Reliable Non-Invasive Glucose Monitoring: A COMSOL-Based Raman–BRS Digital Twin</p>
-            <p class="event-description" data-i18n="event1Text">A research talk and poster on spectral modeling, glucose calibration, and measurement uncertainty for a non-invasive sensing digital twin.</p>
-            <div class="event-footer"><span data-i18n="event1Tag1">Conference presentation</span><span data-i18n="event1Tag2">Talk &amp; poster</span></div>
+            <p class="event-project">
+              Toward Reliable Non-Invasive Glucose Monitoring: A COMSOL-Based Raman–BRS Digital Twin
+            </p>
+            <p class="event-description" data-i18n="event1Text">
+              A research talk and poster on spectral modeling, glucose calibration, and measurement uncertainty for a non-invasive sensing digital twin.
+            </p>
+            <div class="event-footer">
+              <span data-i18n="event1Tag1">Conference presentation</span>
+              <span data-i18n="event1Tag2">Talk &amp; poster</span>
+            </div>
           </article>
-          <article class="event-card" data-category="poster">
-            <div class="event-topline"><span class="event-type"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 3h14v18H5zM8 7h8M8 11h8M8 15h5"/></svg><span data-i18n="event2Type">Accepted research poster</span></span><time class="event-date">2026</time></div>
-            <h3>COMSOL Conference Boston 2026</h3>
-            <p class="event-project">COMSOL Digital Twin For Raman-NIR Non-Invasive Glucose Sensing: From Prototype To Validation</p>
-            <p class="event-description" data-i18n="event2Text">Poster presentation featuring a physics-based digital twin for Raman–NIR spectral modeling and glucose calibration.</p>
-            <a class="event-footer" href="https://www.comsol.com/paper/comsol-digital-twin-for-ramannir-non-invasive-glucose-sensing-from-prototype-to-validation-154632" target="_blank" rel="noopener noreferrer">
-              <span data-i18n="event2Tag1">Technical papers &amp; presentation</span>
-              <span data-i18n="event2Tag2">Published</span>
-            </a>  
-          </article>
+        
+          <a
+            class="event-card-link"
+            href="https://www.comsol.com/paper/comsol-digital-twin-for-ramannir-non-invasive-glucose-sensing-from-prototype-to-validation-154632"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <article class="event-card" data-category="poster">
+              <div class="event-topline">
+                <span class="event-type">
+                  <svg aria-hidden="true" viewBox="0 0 24 24">
+                    <path d="M5 3h14v18H5zM8 7h8M8 11h8M8 15h5"/>
+                  </svg>
+                  <span data-i18n="event2Type">Accepted research poster</span>
+                </span>
+                <time class="event-date" datetime="2026">2026</time>
+              </div>
+        
+              <h3>COMSOL Conference Boston 2026</h3>
+              <p class="event-project">
+                COMSOL Digital Twin For Raman-NIR Non-Invasive Glucose Sensing: From Prototype To Validation
+              </p>
+              <p class="event-description" data-i18n="event2Text">
+                Poster presentation featuring a physics-based digital twin for Raman–NIR spectral modeling and glucose calibration.
+              </p>
+              <div class="event-footer">
+                <span data-i18n="event2Tag1">Technical paper &amp; presentation</span>
+                <span data-i18n="event2Tag2">Talk &amp; poster</span>
+              </div>
+            </article>
+          </a>
         </div>
+       
         <p class="empty-state" id="empty-state" data-i18n="emptyState">No seminar entries yet. New presentations will appear here.</p>
       </div>
     </section>
