@@ -1,14 +1,703 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" dir="ltr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rana Research Lab</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#102a43">
+  <meta name="description" content="RANA Lab develops reliable AI for next-generation applications in cybersecurity, health, sustainable agriculture, computational biology, and intelligent computing.">
+  <meta property="og:title" content="RANA Lab | Reliable AI for Next-Generation Applications">
+  <meta property="og:description" content="Reliable AI for security, health, biology, and sustainable agriculture.">
+  <title>RANA Lab | Reliable AI for Next-Generation Applications</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #102a43;
+      --ink-2: #1a405d;
+      --muted: #61768a;
+      --paper: #f5f6f1;
+      --white: #fff;
+      --line: #dce4e6;
+      --teal: #45cfb0;
+      --teal-dark: #087e73;
+      --lime: #d7ed70;
+      --blue: #8fbbe8;
+      --coral: #f1a18a;
+      --purple: #b4a6ed;
+      --shadow: 0 22px 62px rgba(7, 31, 49, .1);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 92px; }
+    body { margin: 0; color: var(--ink); background: var(--paper); line-height: 1.65; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; }
+    button, select { font: inherit; }
+    a:focus-visible, button:focus-visible, select:focus-visible { outline: 3px solid var(--teal); outline-offset: 4px; }
+    .skip-link { position: absolute; left: 1rem; top: -5rem; z-index: 30; padding: .7rem 1rem; background: var(--white); border-radius: 8px; }
+    .skip-link:focus { top: 1rem; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+    .wrap { width: min(1160px, calc(100% - 48px)); margin: 0 auto; }
+    .site-header { position: absolute; inset: 0 0 auto; z-index: 5; color: white; }
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 82px; border-bottom: 1px solid rgba(255,255,255,.16); }
+    .brand { display: inline-flex; align-items: center; gap: 11px; color: white; text-decoration: none; }
+    .brand-mark { position: relative; display: grid; place-items: center; width: 42px; height: 42px; overflow: hidden; border: 1px solid rgba(215,237,112,.72); border-radius: 14px 14px 14px 5px; color: var(--ink); background: var(--lime); font-size: .73rem; font-weight: 850; letter-spacing: .04em; }
+    .brand-mark::after { position: absolute; right: -7px; bottom: -8px; width: 20px; height: 20px; border: 1px solid rgba(16,42,67,.5); border-radius: 50%; content: ""; }
+    .brand-copy { display: grid; gap: 1px; line-height: 1.2; }
+    .brand-copy strong { font-size: .96rem; letter-spacing: -.02em; }
+    .brand-copy small { color: rgba(255,255,255,.6); font-size: .58rem; letter-spacing: .08em; text-transform: uppercase; }
+    .nav-right { display: flex; align-items: center; gap: 23px; }
+    .nav-links { display: flex; align-items: center; gap: clamp(15px, 2.4vw, 29px); }
+    .nav-links a { color: rgba(255,255,255,.82); text-decoration: none; font-size: .84rem; font-weight: 620; transition: color .2s; white-space: nowrap; }
+    .nav-links a:hover { color: var(--lime); }
+    .nav-links .nav-cta { padding: 9px 14px; border: 1px solid rgba(255,255,255,.38); border-radius: 999px; color: white; }
+    .nav-links .nav-cta:hover { color: var(--ink); border-color: var(--lime); background: var(--lime); }
+    .language-control { display: inline-flex; align-items: center; gap: 7px; color: rgba(255,255,255,.78); }
+    .language-control svg { width: 17px; height: 17px; flex: 0 0 auto; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+    .language-control select { max-width: 114px; padding: 7px 25px 7px 9px; border: 1px solid rgba(255,255,255,.26); border-radius: 8px; color: white; background: rgba(16,42,67,.45); font-size: .78rem; cursor: pointer; }
+    .language-control option { color: var(--ink); background: white; }
+    .hero { position: relative; overflow: hidden; min-height: 674px; padding: 151px 0 82px; color: white; background: radial-gradient(ellipse at 83% 39%, rgba(38,124,137,.35), transparent 34%), linear-gradient(118deg, #0c2337 0%, #123652 58%, #103548 100%); }
+    .hero::before { position: absolute; inset: 0; opacity: .1; pointer-events: none; background-image: linear-gradient(rgba(255,255,255,.17) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.17) 1px, transparent 1px); background-size: 54px 54px; mask-image: linear-gradient(90deg, black, transparent 90%); content: ""; }
+    .hero::after { position: absolute; top: 130px; right: -200px; width: 460px; height: 460px; border: 1px solid rgba(215,237,112,.16); border-radius: 50%; box-shadow: 0 0 0 44px rgba(215,237,112,.035), 0 0 0 92px rgba(215,237,112,.025); content: ""; }
+    .hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1.03fr .97fr; gap: 56px; align-items: center; }
+    .eyebrow { display: flex; align-items: center; gap: 10px; margin: 0 0 21px; color: var(--lime); font-size: .73rem; font-weight: 780; letter-spacing: .15em; text-transform: uppercase; }
+    .eyebrow::before { width: 27px; height: 1px; background: var(--lime); content: ""; }
+    h1 { max-width: 690px; margin: 0; font-size: clamp(3.25rem, 5.3vw, 5.1rem); line-height: .99; letter-spacing: -.065em; font-weight: 730; }
+    h1 em { color: var(--lime); font-style: normal; }
+    .hero-copy { max-width: 600px; margin: 24px 0 0; color: rgba(255,255,255,.76); font-size: 1.06rem; line-height: 1.8; }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 29px; }
+    .button { display: inline-flex; align-items: center; justify-content: center; gap: 9px; min-height: 47px; padding: 0 18px; border: 1px solid transparent; border-radius: 999px; text-decoration: none; font-size: .88rem; font-weight: 730; transition: transform .18s, background .18s, border-color .18s; }
+    .button:hover { transform: translateY(-2px); }
+    .button-primary { color: var(--ink); background: var(--lime); }
+    .button-primary:hover { background: #e5f590; }
+    .button-ghost { color: white; border-color: rgba(255,255,255,.35); background: rgba(255,255,255,.025); }
+    .button-ghost:hover { border-color: white; background: rgba(255,255,255,.08); }
+    .arrow { font-size: 1rem; line-height: 1; }
+    .signal-card { position: relative; min-height: 398px; overflow: hidden; border: 1px solid rgba(255,255,255,.18); border-radius: 28px; background: linear-gradient(145deg, rgba(255,255,255,.085), rgba(255,255,255,.025)); box-shadow: 0 30px 80px rgba(0,0,0,.14); backdrop-filter: blur(8px); }
+    .signal-label { position: absolute; top: 21px; left: 24px; z-index: 1; color: rgba(255,255,255,.62); font-size: .65rem; font-weight: 750; letter-spacing: .15em; text-transform: uppercase; }
+    .signal-card svg { position: absolute; inset: 48px 12px 12px; width: calc(100% - 24px); height: calc(100% - 60px); }
+    .hero-footnote { position: absolute; right: 0; bottom: 23px; left: 0; z-index: 2; color: rgba(255,255,255,.54); font-size: .75rem; }
+    .hero-footnote .wrap { display: flex; justify-content: space-between; gap: 18px; }
+    .hero-footnote span:last-child { color: rgba(255,255,255,.42); }
+    .section { padding: 96px 0; }
+    .section-heading { display: flex; justify-content: space-between; align-items: end; gap: 36px; margin-bottom: 35px; }
+    .section-kicker { margin: 0 0 11px; color: var(--teal-dark); font-size: .72rem; font-weight: 820; letter-spacing: .15em; text-transform: uppercase; }
+    h2 { max-width: 720px; margin: 0; font-size: clamp(2.15rem, 4vw, 3.45rem); line-height: 1.07; letter-spacing: -.055em; }
+    .section-intro { max-width: 440px; margin: 0 0 3px; color: var(--muted); font-size: .98rem; line-height: 1.75; }
+    .research-section { background: var(--paper); }
+    .research-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .research-card { position: relative; min-height: 260px; overflow: hidden; padding: 23px 23px 24px; border: 1px solid var(--line); border-radius: 18px; background: rgba(255,255,255,.78); transition: transform .22s, box-shadow .22s, border-color .22s; }
+    .research-card:hover { transform: translateY(-4px); border-color: transparent; box-shadow: var(--shadow); }
+    .research-card::after { position: absolute; right: -34px; bottom: -41px; width: 98px; height: 98px; border: 1px solid var(--card-accent); border-radius: 50%; opacity: .48; box-shadow: 0 0 0 14px color-mix(in srgb, var(--card-accent) 12%, transparent); content: ""; }
+    .card-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 25px; color: var(--muted); font-size: .68rem; font-weight: 760; letter-spacing: .12em; }
+    .card-icon { display: grid; place-items: center; width: 42px; height: 42px; border: 1px solid color-mix(in srgb, var(--card-accent) 52%, white); border-radius: 13px; color: var(--ink); background: color-mix(in srgb, var(--card-accent) 23%, white); }
+    .card-icon svg { width: 23px; height: 23px; fill: none; stroke: currentColor; stroke-width: 1.65; stroke-linecap: round; stroke-linejoin: round; }
+    h3 { margin: 0; font-size: 1.12rem; line-height: 1.25; letter-spacing: -.025em; }
+    .research-card p { max-width: 330px; margin: 11px 0 0; color: var(--muted); font-size: .88rem; line-height: 1.7; }
+    .cross-cutting { display: flex; align-items: center; gap: 17px; margin-top: 17px; padding: 18px 22px; border: 1px solid rgba(16,42,67,.1); border-radius: 14px; color: #eaf4f4; background: var(--ink); }
+    .cross-cutting strong { flex: 0 0 auto; color: var(--lime); font-size: .73rem; letter-spacing: .08em; text-transform: uppercase; }
+    .cross-cutting span { color: rgba(255,255,255,.75); font-size: .88rem; }
+    .programs-section { color: white; background: #12314a; }
+    .programs-section .section-kicker { color: var(--lime); }
+    .programs-section .section-intro { color: rgba(255,255,255,.64); }
+    .programs-section h2, .programs-section h3 { color: white; }
+    .program-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
+    .program-card { min-height: 240px; padding: 24px; border: 1px solid rgba(255,255,255,.16); border-radius: 17px; background: rgba(255,255,255,.045); transition: border-color .2s, background .2s, transform .2s; }
+    .program-card:hover { transform: translateY(-3px); border-color: rgba(69,207,176,.55); background: rgba(255,255,255,.07); }
+    .program-number { display: flex; align-items: center; justify-content: space-between; margin-bottom: 26px; color: var(--lime); font-size: .69rem; font-weight: 790; letter-spacing: .13em; }
+    .program-number svg { width: 22px; height: 22px; fill: none; stroke: var(--teal); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+    .program-card p { margin: 10px 0 0; color: rgba(255,255,255,.68); font-size: .88rem; line-height: 1.7; }
+    .approach-section { background: #eaf0ec; }
+    .approach-grid { display: grid; grid-template-columns: .86fr 1.14fr; gap: 70px; align-items: start; }
+    .approach-lead { margin: 18px 0 0; color: var(--muted); font-size: 1rem; line-height: 1.8; }
+    .principles { display: grid; grid-template-columns: repeat(3,1fr); gap: 11px; }
+    .principle { min-height: 170px; padding: 20px; border: 1px solid rgba(16,42,67,.13); border-radius: 15px; background: rgba(255,255,255,.55); }
+    .principle-icon { display: grid; place-items: center; width: 35px; height: 35px; margin-bottom: 14px; border-radius: 11px; color: var(--teal-dark); background: rgba(69,207,176,.16); }
+    .principle-icon svg { width: 19px; height: 19px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+    .principle span { display: block; margin-bottom: 7px; color: var(--teal-dark); font-size: .67rem; font-weight: 820; letter-spacing: .1em; text-transform: uppercase; }
+    .principle p { margin: 0; color: var(--ink-2); font-size: .86rem; font-weight: 630; line-height: 1.55; }
+    .showcase-section { background: var(--paper); }
+    .showcase-tools { display: flex; align-items: center; justify-content: space-between; gap: 18px; margin: 0 0 23px; }
+    .showcase-tools p { max-width: 460px; margin: 0; color: var(--muted); font-size: .9rem; }
+    .filters { display: flex; flex-wrap: wrap; gap: 7px; }
+    .filter-button { padding: 8px 12px; border: 1px solid var(--line); border-radius: 999px; color: var(--ink-2); background: white; font-size: .73rem; font-weight: 710; cursor: pointer; transition: color .18s, background .18s, border-color .18s; }
+    .filter-button:hover, .filter-button[aria-pressed="true"] { border-color: var(--ink); color: white; background: var(--ink); }
+    .events-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 14px; }
+    .event-card { position: relative; min-height: 295px; padding: 25px; border: 1px solid var(--line); border-radius: 18px; background: white; box-shadow: 0 8px 28px rgba(7,31,49,.035); }
+    .event-card[hidden] { display: none; }
+    .event-topline { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 24px; }
+    .event-type { display: inline-flex; align-items: center; gap: 7px; color: var(--teal-dark); font-size: .7rem; font-weight: 820; letter-spacing: .06em; text-transform: uppercase; }
+    .event-type svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+    .event-date { color: var(--muted); font-size: .75rem; font-weight: 670; white-space: nowrap; }
+    .event-card h3 { font-size: 1.22rem; }
+    .event-project { margin: 11px 0 0; color: var(--ink-2); font-family: Georgia, serif; font-size: 1rem; font-weight: 650; line-height: 1.45; }
+    .event-card p.event-description { margin: 13px 0 0; color: var(--muted); font-size: .87rem; line-height: 1.7; }
+    .event-footer { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 19px; }
+    .event-footer span { padding: 5px 9px; border: 1px solid var(--line); border-radius: 999px; color: #52677b; background: #f8faf8; font-size: .68rem; font-weight: 690; }
+    .empty-state { display: none; margin-top: 15px; padding: 18px; border: 1px dashed var(--line); border-radius: 12px; color: var(--muted); text-align: center; }
+    .empty-state.visible { display: block; }
+    .team-section { background: #eaf0ec; }
+    .team-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 15px; align-items: stretch; }
+    .pi-card { position: relative; overflow: hidden; min-height: 360px; padding: 32px; border-radius: 20px; color: white; background: linear-gradient(145deg, #0c2639, #176d72); }
+    .pi-card::before, .pi-card::after { position: absolute; right: -68px; bottom: -78px; width: 245px; height: 245px; border: 1px solid rgba(215,237,112,.5); border-radius: 50%; content: ""; }
+    .pi-card::after { right: -36px; bottom: -46px; width: 180px; height: 180px; }
+    .pi-mark { position: relative; z-index: 1; display: grid; place-items: center; width: 72px; height: 72px; margin-bottom: 29px; border-radius: 22px 22px 22px 6px; color: var(--ink); background: var(--lime); font-size: 1.25rem; font-weight: 830; }
+    .pi-card small { position: relative; z-index: 1; color: rgba(255,255,255,.65); font-size: .68rem; font-weight: 760; letter-spacing: .13em; text-transform: uppercase; }
+    .pi-card h3 { position: relative; z-index: 1; max-width: 320px; margin-top: 8px; color: white; font-size: 1.58rem; }
+    .pi-card p { position: relative; z-index: 1; max-width: 365px; margin: 14px 0 0; color: rgba(255,255,255,.76); font-size: .88rem; line-height: 1.7; }
+    .pi-card a { position: relative; z-index: 1; display: inline-flex; gap: 7px; margin-top: 22px; color: var(--lime); font-size: .84rem; font-weight: 730; text-decoration: none; }
+    .student-panel { padding: 29px; border: 1px solid rgba(16,42,67,.1); border-radius: 20px; background: rgba(255,255,255,.74); }
+    .student-head { display: flex; justify-content: space-between; align-items: start; gap: 15px; margin-bottom: 21px; }
+    .student-head h3 { font-size: 1.32rem; }
+    .student-head p { margin: 7px 0 0; color: var(--muted); font-size: .86rem; }
+    .team-total { display: grid; place-items: center; width: 58px; height: 58px; flex: 0 0 58px; border-radius: 17px; color: var(--ink); background: var(--lime); font-size: 1.15rem; font-weight: 850; }
+    .student-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; }
+    .student-stat { min-height: 171px; padding: 17px 15px; border: 1px solid var(--line); border-radius: 15px; background: white; }
+    .student-stat-icon { display: grid; place-items: center; width: 37px; height: 37px; margin-bottom: 19px; border-radius: 12px; color: var(--teal-dark); background: rgba(69,207,176,.13); }
+    .student-stat-icon svg { width: 21px; height: 21px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+    .student-count { display: block; color: var(--ink); font-size: 1.75rem; font-weight: 800; letter-spacing: -.05em; line-height: 1.1; }
+    .student-label { display: block; margin-top: 6px; color: var(--muted); font-size: .77rem; font-weight: 680; line-height: 1.35; }
+    .team-note { margin: 17px 0 0; color: var(--muted); font-size: .79rem; }
+    .join-section { padding: 75px 0; color: white; background: var(--teal-dark); }
+    .join-row { display: flex; justify-content: space-between; align-items: center; gap: 30px; }
+    .join-section .section-kicker { color: var(--lime); }
+    .join-section h2 { max-width: 700px; font-size: clamp(2rem, 3.8vw, 3.15rem); }
+    .join-section p { max-width: 670px; margin: 14px 0 0; color: rgba(255,255,255,.76); }
+    .join-section .button { flex: 0 0 auto; color: var(--ink); background: var(--lime); }
+    .site-footer { padding: 25px 0; color: rgba(255,255,255,.65); background: #0c2234; font-size: .8rem; }
+    .footer-row { display: flex; justify-content: space-between; align-items: center; gap: 18px; }
+    .footer-brand { color: white; font-weight: 740; }
+    .footer-row a { color: var(--lime); text-decoration: none; white-space: nowrap; }
+    html[dir="rtl"] body { text-align: right; }
+    html[dir="rtl"] .nav, html[dir="rtl"] .section-heading, html[dir="rtl"] .showcase-tools, html[dir="rtl"] .student-head, html[dir="rtl"] .hero-footnote .wrap { direction: rtl; }
+    html[dir="rtl"] .hero-grid { direction: rtl; }
+    html[dir="rtl"] .eyebrow { flex-direction: row-reverse; }
+    html[dir="rtl"] .event-topline { flex-direction: row-reverse; }
+    html[dir="rtl"] .event-type { flex-direction: row-reverse; }
+    @media (max-width: 1000px) {
+      .nav-right { gap: 14px; }
+      .nav-links { gap: 15px; }
+      .nav-links a { font-size: .78rem; }
+      .hero-grid { grid-template-columns: 1fr .9fr; gap: 30px; }
+      .signal-card { min-height: 365px; }
+      .research-grid { grid-template-columns: repeat(2,1fr); }
+      .program-grid { grid-template-columns: repeat(2,1fr); }
+      .approach-grid { gap: 38px; }
+      .principles { grid-template-columns: repeat(2,1fr); }
+      .team-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 720px) {
+      .wrap { width: min(100% - 34px, 560px); }
+      .nav { min-height: 72px; }
+      .brand-copy small { display: none; }
+      .nav-right { gap: 9px; }
+      .nav-links { gap: 10px; }
+      .nav-links a:not(.nav-cta) { display: none; }
+      .nav-links .nav-cta { padding: 8px 11px; font-size: .76rem; }
+      .language-control { gap: 4px; }
+      .language-control select { max-width: 89px; padding: 6px 21px 6px 6px; font-size: .72rem; }
+      .hero { min-height: 0; padding: 124px 0 93px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 34px; }
+      h1 { font-size: clamp(2.85rem, 12vw, 4.5rem); }
+      .hero-copy { font-size: .97rem; }
+      .signal-card { min-height: 325px; }
+      .hero-footnote { bottom: 15px; }
+      .hero-footnote .wrap { flex-direction: column; gap: 2px; }
+      .section { padding: 73px 0; }
+      .section-heading { display: block; margin-bottom: 27px; }
+      .section-intro { margin-top: 15px; }
+      .research-grid, .program-grid, .events-grid { grid-template-columns: 1fr; }
+      .research-card { min-height: 210px; padding: 21px; }
+      .cross-cutting { display: block; padding: 18px; }
+      .cross-cutting span { display: block; margin-top: 7px; }
+      .program-card { min-height: 200px; }
+      .approach-grid { grid-template-columns: 1fr; gap: 25px; }
+      .principles { grid-template-columns: repeat(2,1fr); }
+      .showcase-tools { align-items: flex-start; flex-direction: column; }
+      .event-card { min-height: 0; padding: 22px; }
+      .join-row { align-items: flex-start; flex-direction: column; }
+      .join-section .button { margin-top: 3px; }
+      .footer-row { align-items: flex-start; flex-direction: column; gap: 6px; }
+      html[dir="rtl"] .hero-footnote .wrap { align-items: flex-start; }
+    }
+    @media (max-width: 410px) {
+      .brand-mark { width: 36px; height: 36px; border-radius: 12px 12px 12px 4px; font-size: .65rem; }
+      .brand-copy strong { font-size: .87rem; }
+      .language-control svg { display: none; }
+      .research-grid, .program-grid { grid-template-columns: 1fr; }
+      .principles { grid-template-columns: 1fr; }
+      .student-stats { grid-template-columns: 1fr; }
+      .student-stat { min-height: 0; display: grid; grid-template-columns: 42px 1fr; align-items: center; gap: 0 12px; }
+      .student-stat-icon { grid-row: span 2; margin: 0; }
+      .student-count { align-self: end; }
+      .student-label { margin-top: 1px; }
+      .signal-card { min-height: 285px; }
+      .event-topline { align-items: flex-start; flex-direction: column; gap: 7px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
+    }
+  </style>
 </head>
 <body>
-    <h1>Welcome to Rana Research Lab</h1>
-    <h2>Artificial Intelligence and Intelligent Computing</h2>
-    <p>Machine Learning | Cybersecurity | Smart Health</p>
-    <p>Sustainable Agriculture | Bioinformatics | Algorithms</p>
+  <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav wrap" aria-label="Main navigation">
+      <a class="brand" href="#top" aria-label="RANA Lab home">
+        <span class="brand-mark" aria-hidden="true">RANA</span>
+        <span class="brand-copy"><strong>RANA Lab</strong><small data-i18n="brandSubtitle">Reliable AI for next-generation applications</small></span>
+      </a>
+      <div class="nav-right">
+        <div class="nav-links">
+          <a href="#research" data-i18n="navResearch">Research</a>
+          <a href="#programs" data-i18n="navPrograms">Programs</a>
+          <a href="#showcase" data-i18n="navShowcase">Showcase</a>
+          <a href="#team" data-i18n="navTeam">Team</a>
+          <a class="nav-cta" href="#contact"><span data-i18n="navContact">Contact</span> <span aria-hidden="true">→</span></a>
+        </div>
+        <label class="language-control">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"></path></svg>
+          <span class="sr-only" data-i18n="languageLabel">Choose language</span>
+          <select id="language-select" aria-label="Choose language">
+            <option value="en">English</option>
+            <option value="bn">বাংলা</option>
+            <option value="ar">العربية</option>
+            <option value="hi">हिन्दी</option>
+            <option value="es">Español</option>
+          </select>
+        </label>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="wrap hero-grid">
+        <div class="hero-text">
+          <p class="eyebrow" data-i18n="heroEyebrow">Reliable AI · Security · Sensing</p>
+          <h1 id="hero-title" data-i18n-html="heroTitle">Reliable AI for <em>next-generation applications.</em></h1>
+          <p class="hero-copy" data-i18n="heroCopy">RANA Lab develops and evaluates intelligent computing systems for consequential, real-world settings. We bring AI, algorithm design, and careful measurement to challenges in cybersecurity, health, sustainable agriculture, and computational biology.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#research"><span data-i18n="heroButton1">Explore research</span><span class="arrow" aria-hidden="true">↓</span></a>
+            <a class="button button-ghost" href="#showcase"><span data-i18n="heroButton2">See talks &amp; posters</span><span class="arrow" aria-hidden="true">→</span></a>
+          </div>
+        </div>
+        <div class="signal-card">
+          <span class="signal-label" data-i18n="figureLabel">From data to dependable decisions</span>
+          <svg viewBox="0 0 500 340" role="img" aria-labelledby="flow-title flow-desc">
+            <title id="flow-title">RANA Lab research workflow</title>
+            <desc id="flow-desc">Data from security, health, agriculture, and biology is analyzed with AI, evaluated for reliability, and translated into useful decisions.</desc>
+            <defs>
+              <linearGradient id="flow" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#d7ed70"/><stop offset="1" stop-color="#45cfb0"/></linearGradient>
+              <filter id="glow"><feGaussianBlur stdDeviation="4" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            </defs>
+            <circle cx="250" cy="168" r="123" fill="none" stroke="rgba(255,255,255,.12)" stroke-dasharray="3 9"/>
+            <circle cx="250" cy="168" r="82" fill="none" stroke="rgba(69,207,176,.3)"/>
+            <path d="M104 69 C158 73 179 116 213 147" fill="none" stroke="url(#flow)" stroke-width="2" stroke-dasharray="5 7"/>
+            <path d="M104 267 C158 263 179 220 213 190" fill="none" stroke="url(#flow)" stroke-width="2" stroke-dasharray="5 7"/>
+            <path d="M396 168 C353 168 329 168 293 168" fill="none" stroke="url(#flow)" stroke-width="2" stroke-dasharray="5 7"/>
+            <path d="M250 216 C250 244 283 260 315 271" fill="none" stroke="url(#flow)" stroke-width="2" stroke-dasharray="4 6"/>
+            <circle cx="250" cy="168" r="48" fill="#102a43" stroke="#d7ed70" stroke-width="2"/>
+            <circle cx="250" cy="168" r="37" fill="rgba(69,207,176,.1)"/>
+            <text x="250" y="162" text-anchor="middle" fill="#fff" font-size="11" font-weight="700" letter-spacing="1.2" data-i18n="figureCenter1">RELIABLE</text>
+            <text x="250" y="181" text-anchor="middle" fill="#d7ed70" font-size="16" font-weight="700">AI</text>
+            <g fill="#102a43" stroke="#45cfb0" stroke-width="1.5">
+              <rect x="38" y="48" width="112" height="42" rx="13"/><rect x="38" y="246" width="112" height="42" rx="13"/><rect x="350" y="147" width="112" height="42" rx="13"/><rect x="297" y="253" width="126" height="42" rx="13"/>
+            </g>
+            <g fill="#fff" font-size="9" font-weight="700" letter-spacing=".4" text-anchor="middle">
+              <text x="94" y="73" data-i18n="figureSecurity">SECURITY</text><text x="94" y="271" data-i18n="figureHealth">HEALTH</text><text x="406" y="172" data-i18n="figureFarm">AGRICULTURE</text><text x="360" y="278" data-i18n="figureBio">BIOLOGY</text>
+            </g>
+            <g fill="#d7ed70" filter="url(#glow)"><circle cx="162" cy="96" r="3"/><circle cx="184" cy="123" r="2.5"/><circle cx="163" cy="239" r="3"/><circle cx="187" cy="215" r="2.5"/><circle cx="334" cy="168" r="3"/></g>
+          </svg>
+        </div>
+      </div>
+      <div class="hero-footnote"><div class="wrap"><span data-i18n="heroFootLeft">Machine learning · Reliable algorithms · Applied AI</span><span data-i18n="heroFootRight">School of Computing · Georgia Southern University</span></div></div>
+    </section>
+
+    <section class="section research-section" id="research" aria-labelledby="research-title">
+      <div class="wrap">
+        <div class="section-heading">
+          <div><p class="section-kicker" data-i18n="researchKicker">Research areas</p><h2 id="research-title" data-i18n="researchTitle">Intelligent computing across real-world domains.</h2></div>
+          <p class="section-intro" data-i18n="researchIntro">We combine AI, algorithms, and systems research to help make decisions from complex, incomplete, or uncertain data.</p>
+        </div>
+        <div class="research-grid">
+          <article class="research-card" style="--card-accent:var(--blue)">
+            <div class="card-top"><span data-i18n="area1Tag">01 · COMPUTING</span><span class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4M7 9h3M14 9h3M7 12h2M14 12h3"/></svg></span></div>
+            <h3 data-i18n="area1Title">Intelligent Computing</h3><p data-i18n="area1Text">Machine learning, deep learning, and generative AI for reliable analysis, prediction, and decision support.</p>
+          </article>
+          <article class="research-card" style="--card-accent:var(--coral)">
+            <div class="card-top"><span data-i18n="area2Tag">02 · SECURITY</span><span class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 20 6v5c0 5-3.4 8.1-8 10-4.6-1.9-8-5-8-10V6l8-3Z"/><path d="m9 12 2 2 4-4"/></svg></span></div>
+            <h3 data-i18n="area2Title">Cybersecurity &amp; Trustworthy AI</h3><p data-i18n="area2Text">AI-driven security, privacy protection, adversarial testing, and trustworthy systems built to withstand misuse.</p>
+          </article>
+          <article class="research-card" style="--card-accent:var(--teal)">
+            <div class="card-top"><span data-i18n="area3Tag">03 · HEALTH</span><span class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 12h4l2.2-5 4.1 10 2.1-5H21"/><path d="M12 21s-8-4.6-8-11a4.4 4.4 0 0 1 8-2.6A4.4 4.4 0 0 1 20 10"/></svg></span></div>
+            <h3 data-i18n="area3Title">Smart Health</h3><p data-i18n="area3Text">AI for healthcare, biomedical informatics, multimodal sensing, and non-invasive measurement.</p>
+          </article>
+          <article class="research-card" style="--card-accent:var(--lime)">
+            <div class="card-top"><span data-i18n="area4Tag">04 · AGRICULTURE</span><span class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 4c-8 0-13 3.7-13 10 0 3 2.2 5 5 5 6.3 0 8-7 8-15Z"/><path d="M4 21c2-5 6-8 12-11"/></svg></span></div>
+            <h3 data-i18n="area4Title">Sustainable Agriculture</h3><p data-i18n="area4Text">Smart farming, precision agriculture, and environmental intelligence from connected field data.</p>
+          </article>
+          <article class="research-card" style="--card-accent:var(--purple)">
+            <div class="card-top"><span data-i18n="area5Tag">05 · BIOLOGY</span><span class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 3c0 5 10 5 10 9s-10 4-10 9M17 3c0 5-10 5-10 9s10 4 10 9M8 6h8M7 12h10M8 18h8"/></svg></span></div>
+            <h3 data-i18n="area5Title">Computational Biology</h3><p data-i18n="area5Text">Bioinformatics, genomics, and biological data science for insight into complex life-science data.</p>
+          </article>
+          <article class="research-card" style="--card-accent:var(--blue)">
+            <div class="card-top"><span data-i18n="area6Tag">06 · METHODS</span><span class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="5" cy="6" r="2"/><circle cx="19" cy="6" r="2"/><circle cx="12" cy="18" r="2"/><path d="M7 7.5 10.7 16M17 7.5 13.3 16M7 6h10"/></svg></span></div>
+            <h3 data-i18n="area6Title">Algorithm Design</h3><p data-i18n="area6Text">Efficient, robust algorithms for learning, optimization, data integration, and real-world decisions.</p>
+          </article>
+        </div>
+        <div class="cross-cutting"><strong data-i18n="crossTitle">Shared foundation</strong><span data-i18n="crossText">Reliable measurement · Privacy-aware design · Reproducible evaluation · Human-centered decisions</span></div>
+      </div>
+    </section>
+
+    <section class="section programs-section" id="programs" aria-labelledby="programs-title">
+      <div class="wrap">
+        <div class="section-heading">
+          <div><p class="section-kicker" data-i18n="programKicker">Research programs</p><h2 id="programs-title" data-i18n="programTitle">Questions we are working to answer.</h2></div>
+          <p class="section-intro" data-i18n="programIntro">We connect computational methods to measured signals and careful evaluation.</p>
+        </div>
+        <div class="program-grid">
+          <article class="program-card"><div class="program-number"><span>01 · <span data-i18n="programLabel1">HEALTH</span></span><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M3 12h4l2-5 4 10 2-5h6"/></svg></div><h3 data-i18n="program1Title">Non-invasive glucose sensing</h3><p data-i18n="program1Text">A Raman–NIR digital-twin effort studies spectral features, calibration, and uncertainty for future non-invasive glucose monitoring.</p></article>
+          <article class="program-card"><div class="program-number"><span>02 · <span data-i18n="programLabel2">MEDIA INTEGRITY</span></span><svg aria-hidden="true" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m10 9 5 3-5 3zM3 9h3M18 15h3"/></svg></div><h3 data-i18n="program2Title">Deepfake forensics &amp; authenticity</h3><p data-i18n="program2Text">We examine manipulated media, cross-generator detection, and multimodal evidence under realistic sharing conditions.</p></article>
+          <article class="program-card"><div class="program-number"><span>03 · <span data-i18n="programLabel3">RESILIENT SYSTEMS</span></span><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3 20 6v5c0 5-3.4 8.1-8 10-4.6-1.9-8-5-8-10V6l8-3Z"/><path d="M8 12h8M12 8v8"/></svg></div><h3 data-i18n="program3Title">Security for connected systems</h3><p data-i18n="program3Text">Our work explores adversarial testing, privacy, and resilient AI in cyber-physical and sensor-rich environments.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section approach-section" aria-labelledby="approach-title">
+      <div class="wrap approach-grid">
+        <div><p class="section-kicker" data-i18n="approachKicker">How we work</p><h2 id="approach-title" data-i18n="approachTitle">Make the evidence—and its limits—clear.</h2><p class="approach-lead" data-i18n="approachIntro">A result matters when its assumptions, data, uncertainty, and failure cases are visible. We pair technical development with disciplined evaluation.</p></div>
+        <div class="principles" aria-label="Lab research principles">
+          <div class="principle"><span class="principle-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 19V5M4 19h17M8 15l3-4 3 2 5-7"/></svg></span><span data-i18n="principle1Label">Measure</span><p data-i18n="principle1Text">Ground models in meaningful signals and well-defined targets.</p></div>
+          <div class="principle"><span class="principle-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 20 6v5c0 5-3.4 8.1-8 10-4.6-1.9-8-5-8-10V6l8-3Z"/><path d="m9 12 2 2 4-4"/></svg></span><span data-i18n="principle2Label">Challenge</span><p data-i18n="principle2Text">Test across sources, operating conditions, and potential attacks.</p></div>
+          <div class="principle"><span class="principle-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 12s3.2-6 9-6 9 6 9 6-3.2 6-9 6-9-6-9-6Z"/><circle cx="12" cy="12" r="2.5"/></svg></span><span data-i18n="principle3Label">Explain</span><p data-i18n="principle3Text">Make assumptions, uncertainty, and failure modes understandable.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section showcase-section" id="showcase" aria-labelledby="showcase-title">
+      <div class="wrap">
+        <div class="section-heading">
+          <div><p class="section-kicker" data-i18n="showcaseKicker">Research showcase</p><h2 id="showcase-title" data-i18n="showcaseTitle">Talks, posters &amp; seminars.</h2></div>
+          <p class="section-intro" data-i18n="showcaseIntro">Recent conference presentations and research posters from the lab.</p>
+        </div>
+        <div class="showcase-tools">
+          <p data-i18n="showcaseNote">A growing record of research shared with academic and community audiences.</p>
+          <div class="filters" role="group" aria-label="Filter presentations">
+            <button class="filter-button" type="button" data-filter="all" aria-pressed="true" data-i18n="filterAll">All</button>
+            <button class="filter-button" type="button" data-filter="talk" aria-pressed="false" data-i18n="filterTalks">Talks</button>
+            <button class="filter-button" type="button" data-filter="poster" aria-pressed="false" data-i18n="filterPosters">Posters</button>
+            <button class="filter-button" type="button" data-filter="seminar" aria-pressed="false" data-i18n="filterSeminars">Seminars</button>
+          </div>
+        </div>
+        <div class="events-grid" id="events-grid" aria-live="polite">
+          <article class="event-card" data-category="talk poster">
+            <div class="event-topline"><span class="event-type"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 4h16v12H4zM8 20h8M12 16v4M8 9h8M8 12h5"/></svg><span data-i18n="event1Type">Research talk + poster</span></span><time class="event-date" datetime="2026-11-03">Nov 3, 2026</time></div>
+            <h3>MCG–GS Community Engaged Research Conference</h3>
+            <p class="event-project">Toward Reliable Non-Invasive Glucose Monitoring: A COMSOL-Based Raman–BRS Digital Twin</p>
+            <p class="event-description" data-i18n="event1Text">A research talk and poster on spectral modeling, glucose calibration, and measurement uncertainty for a non-invasive sensing digital twin.</p>
+            <div class="event-footer"><span data-i18n="event1Tag1">Conference presentation</span><span data-i18n="event1Tag2">Talk &amp; poster</span></div>
+          </article>
+          <article class="event-card" data-category="poster">
+            <div class="event-topline"><span class="event-type"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 3h14v18H5zM8 7h8M8 11h8M8 15h5"/></svg><span data-i18n="event2Type">Accepted research poster</span></span><time class="event-date">2026</time></div>
+            <h3>COMSOL Conference Boston 2026</h3>
+            <p class="event-project">Toward Reliable Non-Invasive Glucose Monitoring: A COMSOL-Based Raman–BRS Digital Twin</p>
+            <p class="event-description" data-i18n="event2Text">Poster presentation featuring a physics-based digital twin for Raman–NIR spectral modeling and glucose calibration.</p>
+            <div class="event-footer"><span data-i18n="event2Tag1">Conference poster</span><span data-i18n="event2Tag2">Accepted</span></div>
+          </article>
+        </div>
+        <p class="empty-state" id="empty-state" data-i18n="emptyState">No seminar entries yet. New presentations will appear here.</p>
+      </div>
+    </section>
+
+    <section class="section team-section" id="team" aria-labelledby="team-title">
+      <div class="wrap">
+        <div class="section-heading">
+          <div><p class="section-kicker" data-i18n="teamKicker">People</p><h2 id="team-title" data-i18n="teamTitle">A team learning through research.</h2></div>
+          <p class="section-intro" data-i18n="teamIntro">Our student researchers work across AI, cybersecurity, health, and data-driven systems.</p>
+        </div>
+        <div class="team-grid">
+          <article class="pi-card">
+            <div class="pi-mark" aria-hidden="true">SR</div>
+            <small data-i18n="piRole">Principal Investigator</small>
+            <h3>Md Shohel Rana, Ph.D.</h3>
+            <p data-i18n="piBio">Assistant Professor in the School of Computing at Georgia Southern University. His research develops reliable AI and computational methods for security, health, biology, and sustainable systems.</p>
+            <a href="mailto:mrana@georgiasouthern.edu"><span data-i18n="piEmail">Email Dr. Rana</span><span aria-hidden="true">→</span></a>
+          </article>
+          <div class="student-panel">
+            <div class="student-head">
+              <div><h3 data-i18n="studentTitle">Student researchers</h3><p data-i18n="studentIntro">A four-person student team across three degree levels.</p></div>
+              <span class="team-total" aria-label="4 student researchers">4</span>
+            </div>
+            <div class="student-stats">
+              <article class="student-stat"><span class="student-stat-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m2 9 10-5 10 5-10 5L2 9Z"/><path d="M6 11v5c3.8 3 8.2 3 12 0v-5M22 9v6"/></svg></span><strong class="student-count">2</strong><span class="student-label" data-i18n="phdLabel">Ph.D. students</span></article>
+              <article class="student-stat"><span class="student-stat-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5h13a3 3 0 0 1 3 3v11H7a3 3 0 0 1-3-3V5Z"/><path d="M4 16a3 3 0 0 1 3-3h13M8 9h7"/></svg></span><strong class="student-count">1</strong><span class="student-label" data-i18n="mastersLabel">Master’s student</span></article>
+              <article class="student-stat"><span class="student-stat-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20h16M6 17l3-7 3 4 3-8 3 11"/><circle cx="9" cy="7" r="2"/></svg></span><strong class="student-count">1</strong><span class="student-label" data-i18n="undergradLabel">Undergraduate student</span></article>
+            </div>
+            <p class="team-note" data-i18n="teamNote">Student profiles and project details can be added as the team grows.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="join-section" id="contact" aria-labelledby="contact-title">
+      <div class="wrap join-row">
+        <div><p class="section-kicker" data-i18n="contactKicker">Connect with us</p><h2 id="contact-title" data-i18n="contactTitle">Have a question worth investigating?</h2><p data-i18n="contactText">Students interested in research and colleagues exploring collaboration are welcome to get in touch.</p></div>
+        <a class="button" href="mailto:mrana@georgiasouthern.edu?subject=RANA%20Lab%20inquiry"><span data-i18n="contactButton">Contact RANA Lab</span><span class="arrow" aria-hidden="true">→</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="wrap footer-row"><span class="footer-brand">RANA Lab · Georgia Southern University</span><span data-i18n="footerLocation">School of Computing · Statesboro, Georgia</span><a href="#top" data-i18n="backToTop">Back to top ↑</a></div></footer>
+
+  <script>
+    const translations = {
+      en: {
+        pageTitle:"RANA Lab | Reliable AI for Next-Generation Applications",
+        metaDescription:"RANA Lab develops reliable AI for cybersecurity, health, sustainable agriculture, computational biology, and intelligent computing.",
+        skip:"Skip to content", brandSubtitle:"Reliable AI for next-generation applications", languageLabel:"Choose language",
+        navResearch:"Research", navPrograms:"Programs", navShowcase:"Showcase", navTeam:"Team", navContact:"Contact",
+        heroEyebrow:"Reliable AI · Security · Sensing", heroTitle:"Reliable AI for <em>next-generation applications.</em>",
+        heroCopy:"RANA Lab develops and evaluates intelligent computing systems for consequential, real-world settings. We bring AI, algorithm design, and careful measurement to challenges in cybersecurity, health, sustainable agriculture, and computational biology.",
+        heroButton1:"Explore research", heroButton2:"See talks & posters", figureLabel:"From data to dependable decisions",
+        figureCenter1:"RELIABLE", figureSecurity:"SECURITY", figureHealth:"HEALTH", figureFarm:"AGRICULTURE", figureBio:"BIOLOGY",
+        heroFootLeft:"Machine learning · Reliable algorithms · Applied AI", heroFootRight:"School of Computing · Georgia Southern University",
+        researchKicker:"Research areas", researchTitle:"Intelligent computing across real-world domains.",
+        researchIntro:"We combine AI, algorithms, and systems research to help make decisions from complex, incomplete, or uncertain data.",
+        area1Tag:"01 · COMPUTING", area1Title:"Intelligent Computing", area1Text:"Machine learning, deep learning, and generative AI for reliable analysis, prediction, and decision support.",
+        area2Tag:"02 · SECURITY", area2Title:"Cybersecurity & Trustworthy AI", area2Text:"AI-driven security, privacy protection, adversarial testing, and trustworthy systems built to withstand misuse.",
+        area3Tag:"03 · HEALTH", area3Title:"Smart Health", area3Text:"AI for healthcare, biomedical informatics, multimodal sensing, and non-invasive measurement.",
+        area4Tag:"04 · AGRICULTURE", area4Title:"Sustainable Agriculture", area4Text:"Smart farming, precision agriculture, and environmental intelligence from connected field data.",
+        area5Tag:"05 · BIOLOGY", area5Title:"Computational Biology", area5Text:"Bioinformatics, genomics, and biological data science for insight into complex life-science data.",
+        area6Tag:"06 · METHODS", area6Title:"Algorithm Design", area6Text:"Efficient, robust algorithms for learning, optimization, data integration, and real-world decisions.",
+        crossTitle:"Shared foundation", crossText:"Reliable measurement · Privacy-aware design · Reproducible evaluation · Human-centered decisions",
+        programKicker:"Research programs", programTitle:"Questions we are working to answer.", programIntro:"We connect computational methods to measured signals and careful evaluation.",
+        programLabel1:"HEALTH", program1Title:"Non-invasive glucose sensing", program1Text:"A Raman–NIR digital-twin effort studies spectral features, calibration, and uncertainty for future non-invasive glucose monitoring.",
+        programLabel2:"MEDIA INTEGRITY", program2Title:"Deepfake forensics & authenticity", program2Text:"We examine manipulated media, cross-generator detection, and multimodal evidence under realistic sharing conditions.",
+        programLabel3:"RESILIENT SYSTEMS", program3Title:"Security for connected systems", program3Text:"Our work explores adversarial testing, privacy, and resilient AI in cyber-physical and sensor-rich environments.",
+        approachKicker:"How we work", approachTitle:"Make the evidence—and its limits—clear.", approachIntro:"A result matters when its assumptions, data, uncertainty, and failure cases are visible. We pair technical development with disciplined evaluation.",
+        principle1Label:"Measure", principle1Text:"Ground models in meaningful signals and well-defined targets.",
+        principle2Label:"Challenge", principle2Text:"Test across sources, operating conditions, and potential attacks.",
+        principle3Label:"Explain", principle3Text:"Make assumptions, uncertainty, and failure modes understandable.",
+        showcaseKicker:"Research showcase", showcaseTitle:"Talks, posters & seminars.", showcaseIntro:"Recent conference presentations and research posters from the lab.",
+        showcaseNote:"A growing record of research shared with academic and community audiences.",
+        filterAll:"All", filterTalks:"Talks", filterPosters:"Posters", filterSeminars:"Seminars",
+        event1Type:"Research talk + poster", event1Text:"A research talk and poster on spectral modeling, glucose calibration, and measurement uncertainty for a non-invasive sensing digital twin.",
+        event1Tag1:"Conference presentation", event1Tag2:"Talk & poster",
+        event2Type:"Accepted research poster", event2Text:"Poster presentation featuring a physics-based digital twin for Raman–NIR spectral modeling and glucose calibration.",
+        event2Tag1:"Conference poster", event2Tag2:"Accepted", emptyState:"No seminar entries yet. New presentations will appear here.",
+        teamKicker:"People", teamTitle:"A team learning through research.", teamIntro:"Our student researchers work across AI, cybersecurity, health, and data-driven systems.",
+        piRole:"Principal Investigator", piBio:"Assistant Professor in the School of Computing at Georgia Southern University. His research develops reliable AI and computational methods for security, health, biology, and sustainable systems.", piEmail:"Email Dr. Rana",
+        studentTitle:"Student researchers", studentIntro:"A four-person student team across three degree levels.", phdLabel:"Ph.D. students", mastersLabel:"Master’s student", undergradLabel:"Undergraduate student", teamNote:"Student profiles and project details can be added as the team grows.",
+        contactKicker:"Connect with us", contactTitle:"Have a question worth investigating?", contactText:"Students interested in research and colleagues exploring collaboration are welcome to get in touch.", contactButton:"Contact RANA Lab",
+        footerLocation:"School of Computing · Statesboro, Georgia", backToTop:"Back to top ↑"
+      },
+      bn: {
+        pageTitle:"RANA Lab | পরবর্তী প্রজন্মের প্রয়োগে নির্ভরযোগ্য AI",
+        metaDescription:"RANA Lab সাইবার নিরাপত্তা, স্বাস্থ্য, টেকসই কৃষি, গণনামূলক জীববিজ্ঞান ও বুদ্ধিমান কম্পিউটিংয়ে নির্ভরযোগ্য AI নিয়ে কাজ করে।",
+        skip:"মূল বিষয়বস্তুতে যান", brandSubtitle:"পরবর্তী প্রজন্মের প্রয়োগে নির্ভরযোগ্য AI", languageLabel:"ভাষা নির্বাচন করুন",
+        navResearch:"গবেষণা", navPrograms:"গবেষণা কর্মসূচি", navShowcase:"উপস্থাপনা", navTeam:"দল", navContact:"যোগাযোগ",
+        heroEyebrow:"নির্ভরযোগ্য AI · নিরাপত্তা · সেন্সিং", heroTitle:"পরবর্তী প্রজন্মের <em>প্রয়োগের জন্য নির্ভরযোগ্য AI।</em>",
+        heroCopy:"RANA Lab বাস্তব জীবনের গুরুত্বপূর্ণ ক্ষেত্রে বুদ্ধিমান কম্পিউটিং ব্যবস্থা তৈরি ও মূল্যায়ন করে। সাইবার নিরাপত্তা, স্বাস্থ্য, টেকসই কৃষি ও গণনামূলক জীববিজ্ঞানের সমস্যায় আমরা AI, অ্যালগরিদম নকশা এবং সতর্ক পরিমাপের সমন্বয় করি।",
+        heroButton1:"গবেষণা দেখুন", heroButton2:"আলোচনা ও পোস্টার", figureLabel:"তথ্য থেকে নির্ভরযোগ্য সিদ্ধান্ত",
+        figureCenter1:"নির্ভরযোগ্য", figureSecurity:"নিরাপত্তা", figureHealth:"স্বাস্থ্য", figureFarm:"কৃষি", figureBio:"জীববিজ্ঞান",
+        heroFootLeft:"মেশিন লার্নিং · নির্ভরযোগ্য অ্যালগরিদম · প্রয়োগভিত্তিক AI", heroFootRight:"স্কুল অব কম্পিউটিং · জর্জিয়া সাউদার্ন ইউনিভার্সিটি",
+        researchKicker:"গবেষণার ক্ষেত্র", researchTitle:"বাস্তব জীবনের নানা ক্ষেত্রে বুদ্ধিমান কম্পিউটিং।",
+        researchIntro:"জটিল, অসম্পূর্ণ বা অনিশ্চিত তথ্য থেকে সিদ্ধান্ত নিতে আমরা AI, অ্যালগরিদম ও সিস্টেম গবেষণার সমন্বয় করি।",
+        area1Tag:"০১ · কম্পিউটিং", area1Title:"বুদ্ধিমান কম্পিউটিং", area1Text:"নির্ভরযোগ্য বিশ্লেষণ, পূর্বাভাস ও সিদ্ধান্ত-সহায়তার জন্য মেশিন লার্নিং, ডিপ লার্নিং এবং জেনারেটিভ AI।",
+        area2Tag:"০২ · নিরাপত্তা", area2Title:"সাইবার নিরাপত্তা ও বিশ্বস্ত AI", area2Text:"AI-ভিত্তিক নিরাপত্তা, গোপনীয়তা সুরক্ষা, প্রতিপক্ষীয় পরীক্ষা এবং অপব্যবহার-সহনশীল বিশ্বস্ত ব্যবস্থা।",
+        area3Tag:"০৩ · স্বাস্থ্য", area3Title:"স্মার্ট স্বাস্থ্য", area3Text:"স্বাস্থ্যসেবা, বায়োমেডিক্যাল ইনফরমেটিক্স, মাল্টিমোডাল সেন্সিং এবং অ-আক্রমণাত্মক পরিমাপে AI।",
+        area4Tag:"০৪ · কৃষি", area4Title:"টেকসই কৃষি", area4Text:"সংযুক্ত ক্ষেত্র-তথ্য থেকে স্মার্ট ফার্মিং, নির্ভুল কৃষি এবং পরিবেশগত বুদ্ধিমত্তা।",
+        area5Tag:"০৫ · জীববিজ্ঞান", area5Title:"গণনামূলক জীববিজ্ঞান", area5Text:"জটিল জীবনবিজ্ঞান-তথ্য থেকে অন্তর্দৃষ্টি পেতে বায়োইনফরমেটিক্স, জিনোমিক্স ও জৈবিক তথ্যবিজ্ঞান।",
+        area6Tag:"০৬ · পদ্ধতি", area6Title:"অ্যালগরিদম নকশা", area6Text:"লার্নিং, অপ্টিমাইজেশন, তথ্য একীভবন ও বাস্তব সিদ্ধান্তের জন্য দক্ষ ও দৃঢ় অ্যালগরিদম।",
+        crossTitle:"সবার ভিত্তি", crossText:"নির্ভরযোগ্য পরিমাপ · গোপনীয়তা-সচেতন নকশা · পুনরুৎপাদনযোগ্য মূল্যায়ন · মানুষকেন্দ্রিক সিদ্ধান্ত",
+        programKicker:"গবেষণা কর্মসূচি", programTitle:"যেসব প্রশ্নের উত্তর খুঁজছি।", programIntro:"পরিমাপ করা সংকেত ও সতর্ক মূল্যায়নের সঙ্গে আমরা গণনামূলক পদ্ধতিকে যুক্ত করি।",
+        programLabel1:"স্বাস্থ্য", program1Title:"অ-আক্রমণাত্মক গ্লুকোজ সেন্সিং", program1Text:"রামান–NIR ডিজিটাল টুইন প্রকল্পে ভবিষ্যৎ অ-আক্রমণাত্মক গ্লুকোজ পর্যবেক্ষণের জন্য বর্ণালিগত বৈশিষ্ট্য, ক্যালিব্রেশন ও অনিশ্চয়তা বিশ্লেষণ করা হয়।",
+        programLabel2:"মিডিয়া অখণ্ডতা", program2Title:"ডিপফেক ফরেনসিক্স ও সত্যতা", program2Text:"বাস্তবসম্মত শেয়ারিং পরিস্থিতিতে বিকৃত মিডিয়া, বিভিন্ন জেনারেটরে শনাক্তকরণ এবং মাল্টিমোডাল প্রমাণ বিশ্লেষণ করি।",
+        programLabel3:"সহনশীল ব্যবস্থা", program3Title:"সংযুক্ত ব্যবস্থার নিরাপত্তা", program3Text:"সাইবার-ফিজিক্যাল ও সেন্সরসমৃদ্ধ পরিবেশে প্রতিপক্ষীয় পরীক্ষা, গোপনীয়তা এবং সহনশীল AI নিয়ে কাজ করি।",
+        approachKicker:"আমাদের কাজের ধরন", approachTitle:"প্রমাণ ও তার সীমা স্পষ্ট করি।", approachIntro:"অনুমান, তথ্য, অনিশ্চয়তা ও ব্যর্থতার দিকগুলো বোঝা গেলে ফলাফল অর্থবহ হয়। প্রযুক্তিগত উন্নয়নের সঙ্গে আমরা শৃঙ্খলাপূর্ণ মূল্যায়ন করি।",
+        principle1Label:"পরিমাপ", principle1Text:"অর্থবহ সংকেত ও সুস্পষ্ট লক্ষ্যে মডেলকে ভিত্তি দিই।",
+        principle2Label:"পরীক্ষা", principle2Text:"তথ্যের উৎস, পরিচালন পরিস্থিতি ও সম্ভাব্য আক্রমণ জুড়ে পরীক্ষা করি।",
+        principle3Label:"ব্যাখ্যা", principle3Text:"অনুমান, অনিশ্চয়তা ও ব্যর্থতার ধরন বোধগম্য করি।",
+        showcaseKicker:"গবেষণা উপস্থাপনা", showcaseTitle:"আলোচনা, পোস্টার ও সেমিনার।", showcaseIntro:"ল্যাবের সাম্প্রতিক সম্মেলন উপস্থাপনা ও গবেষণা পোস্টার।",
+        showcaseNote:"একাডেমিক ও কমিউনিটি শ্রোতাদের সঙ্গে ভাগ করা গবেষণার ক্রমবর্ধমান সংগ্রহ।",
+        filterAll:"সব", filterTalks:"আলোচনা", filterPosters:"পোস্টার", filterSeminars:"সেমিনার",
+        event1Type:"গবেষণা আলোচনা + পোস্টার", event1Text:"অ-আক্রমণাত্মক সেন্সিং ডিজিটাল টুইনের জন্য বর্ণালী মডেলিং, গ্লুকোজ ক্যালিব্রেশন এবং পরিমাপের অনিশ্চয়তা নিয়ে আলোচনা ও পোস্টার।",
+        event1Tag1:"সম্মেলন উপস্থাপনা", event1Tag2:"আলোচনা ও পোস্টার",
+        event2Type:"গৃহীত গবেষণা পোস্টার", event2Text:"রামান–NIR বর্ণালী মডেলিং ও গ্লুকোজ ক্যালিব্রেশনের জন্য পদার্থবিজ্ঞানভিত্তিক ডিজিটাল টুইনের পোস্টার উপস্থাপনা।",
+        event2Tag1:"সম্মেলন পোস্টার", event2Tag2:"গৃহীত", emptyState:"এখনও কোনো সেমিনার যোগ করা হয়নি। নতুন উপস্থাপনাগুলো এখানে দেখা যাবে।",
+        teamKicker:"মানুষ", teamTitle:"গবেষণার মাধ্যমে শেখা একটি দল।", teamIntro:"আমাদের শিক্ষার্থী গবেষকেরা AI, সাইবার নিরাপত্তা, স্বাস্থ্য ও তথ্যনির্ভর ব্যবস্থায় কাজ করেন।",
+        piRole:"প্রধান গবেষক", piBio:"জর্জিয়া সাউদার্ন ইউনিভার্সিটির স্কুল অব কম্পিউটিংয়ের সহকারী অধ্যাপক। তাঁর গবেষণা নিরাপত্তা, স্বাস্থ্য, জীববিজ্ঞান ও টেকসই ব্যবস্থার জন্য নির্ভরযোগ্য AI ও গণনামূলক পদ্ধতি তৈরি করে।", piEmail:"ড. রানাকে ইমেইল",
+        studentTitle:"শিক্ষার্থী গবেষক", studentIntro:"তিনটি ডিগ্রি স্তরে চারজন শিক্ষার্থী গবেষক।", phdLabel:"পিএইচডি শিক্ষার্থী", mastersLabel:"মাস্টার্স শিক্ষার্থী", undergradLabel:"স্নাতক শিক্ষার্থী", teamNote:"দল বড় হলে শিক্ষার্থীদের পরিচিতি ও প্রকল্পের তথ্য যোগ করা যাবে।",
+        contactKicker:"যোগাযোগ করুন", contactTitle:"গবেষণাযোগ্য কোনো প্রশ্ন আছে?", contactText:"গবেষণায় আগ্রহী শিক্ষার্থী ও সহযোগিতায় আগ্রহী সহকর্মীদের যোগাযোগের আমন্ত্রণ জানাই।", contactButton:"RANA Lab-এ যোগাযোগ",
+        footerLocation:"স্কুল অব কম্পিউটিং · স্টেটসবরো, জর্জিয়া", backToTop:"উপরে ফিরুন ↑"
+      },
+      ar: {
+        pageTitle:"مختبر RANA | ذكاء اصطناعي موثوق لتطبيقات الجيل القادم",
+        metaDescription:"يطوّر مختبر RANA ذكاءً اصطناعياً موثوقاً للأمن السيبراني والصحة والزراعة المستدامة والبيولوجيا الحاسوبية.",
+        skip:"انتقل إلى المحتوى", brandSubtitle:"ذكاء اصطناعي موثوق لتطبيقات الجيل القادم", languageLabel:"اختر اللغة",
+        navResearch:"الأبحاث", navPrograms:"البرامج", navShowcase:"الإنجازات", navTeam:"الفريق", navContact:"تواصل",
+        heroEyebrow:"ذكاء اصطناعي موثوق · أمن · استشعار", heroTitle:"ذكاء اصطناعي موثوق <em>لتطبيقات الجيل القادم.</em>",
+        heroCopy:"يطوّر مختبر RANA أنظمة حوسبة ذكية ويقيّمها في سياقات واقعية مهمة. ونجمع بين الذكاء الاصطناعي وتصميم الخوارزميات والقياس الدقيق لمواجهة تحديات الأمن السيبراني والصحة والزراعة المستدامة والبيولوجيا الحاسوبية.",
+        heroButton1:"استكشف الأبحاث", heroButton2:"المحاضرات والملصقات", figureLabel:"من البيانات إلى قرارات يمكن الاعتماد عليها",
+        figureCenter1:"موثوق", figureSecurity:"الأمن", figureHealth:"الصحة", figureFarm:"الزراعة", figureBio:"الأحياء",
+        heroFootLeft:"تعلم الآلة · خوارزميات موثوقة · ذكاء اصطناعي تطبيقي", heroFootRight:"مدرسة الحوسبة · جامعة جورجيا الجنوبية",
+        researchKicker:"مجالات البحث", researchTitle:"حوسبة ذكية لمجالات الحياة الواقعية.",
+        researchIntro:"نجمع بين الذكاء الاصطناعي والخوارزميات وبحوث الأنظمة لدعم القرارات المبنية على بيانات معقدة أو ناقصة أو غير مؤكدة.",
+        area1Tag:"٠١ · الحوسبة", area1Title:"الحوسبة الذكية", area1Text:"تعلم الآلة والتعلم العميق والذكاء الاصطناعي التوليدي للتحليل والتنبؤ ودعم القرار الموثوق.",
+        area2Tag:"٠٢ · الأمن", area2Title:"الأمن السيبراني والذكاء الموثوق", area2Text:"أمن مدعوم بالذكاء الاصطناعي وحماية الخصوصية واختبارات الخصومة وأنظمة موثوقة تقاوم إساءة الاستخدام.",
+        area3Tag:"٠٣ · الصحة", area3Title:"الصحة الذكية", area3Text:"الذكاء الاصطناعي للرعاية الصحية والمعلوماتية الطبية الحيوية والاستشعار متعدد الوسائط والقياس غير الباضع.",
+        area4Tag:"٠٤ · الزراعة", area4Title:"الزراعة المستدامة", area4Text:"الزراعة الذكية والزراعة الدقيقة والذكاء البيئي المستمد من بيانات الحقول المتصلة.",
+        area5Tag:"٠٥ · الأحياء", area5Title:"البيولوجيا الحاسوبية", area5Text:"المعلوماتية الحيوية وعلم الجينوم وعلوم البيانات البيولوجية لفهم بيانات علوم الحياة المعقدة.",
+        area6Tag:"٠٦ · المنهجيات", area6Title:"تصميم الخوارزميات", area6Text:"خوارزميات فعالة ومتينة للتعلم والتحسين ودمج البيانات واتخاذ قرارات واقعية.",
+        crossTitle:"أساس مشترك", crossText:"قياس موثوق · تصميم يراعي الخصوصية · تقييم قابل لإعادة الإنتاج · قرارات تركز على الإنسان",
+        programKicker:"البرامج البحثية", programTitle:"أسئلة نعمل على الإجابة عنها.", programIntro:"نربط الأساليب الحاسوبية بالإشارات المقاسة والتقييم الدقيق.",
+        programLabel1:"الصحة", program1Title:"استشعار غير باضع للغلوكوز", program1Text:"يدرس مشروع التوأم الرقمي Raman–NIR الخصائص الطيفية والمعايرة وعدم اليقين من أجل مراقبة مستقبلية للغلوكوز دون تدخل جراحي.",
+        programLabel2:"نزاهة الإعلام", program2Title:"التحقيق في التزييف العميق والأصالة", program2Text:"ندرس الوسائط المعدلة والكشف عبر مولدات مختلفة والأدلة متعددة الوسائط في ظروف مشاركة واقعية.",
+        programLabel3:"أنظمة مرنة", program3Title:"أمن الأنظمة المتصلة", program3Text:"تستكشف أبحاثنا الاختبارات الخصومية والخصوصية والذكاء الاصطناعي المرن في البيئات السيبرانية-الفيزيائية والغنية بالمستشعرات.",
+        approachKicker:"منهجنا", approachTitle:"توضيح الأدلة وحدودها.", approachIntro:"تكون النتيجة ذات قيمة عندما تكون افتراضاتها وبياناتها وعدم يقينها وحالات إخفاقها واضحة. ونقرن التطوير التقني بتقييم منضبط.",
+        principle1Label:"القياس", principle1Text:"نبني النماذج على إشارات ذات معنى وأهداف محددة بوضوح.",
+        principle2Label:"الاختبار", principle2Text:"نختبر عبر مصادر وظروف تشغيل وهجمات محتملة مختلفة.",
+        principle3Label:"التفسير", principle3Text:"نجعل الافتراضات وعدم اليقين وأنماط الإخفاق مفهومة.",
+        showcaseKicker:"عرض الأبحاث", showcaseTitle:"محاضرات وملصقات وندوات.", showcaseIntro:"أحدث عروض المؤتمرات والملصقات البحثية للمختبر.",
+        showcaseNote:"سجل متنامٍ لأبحاث يشاركها الفريق مع المجتمع الأكاديمي والمجتمع المحلي.",
+        filterAll:"الكل", filterTalks:"محاضرات", filterPosters:"ملصقات", filterSeminars:"ندوات",
+        event1Type:"محاضرة بحثية + ملصق", event1Text:"محاضرة وملصق حول النمذجة الطيفية ومعايرة الغلوكوز وعدم يقين القياس لتوأم رقمي للاستشعار غير الباضع.",
+        event1Tag1:"عرض في مؤتمر", event1Tag2:"محاضرة وملصق",
+        event2Type:"ملصق بحثي مقبول", event2Text:"عرض ملصق لتوأم رقمي قائم على الفيزياء للنمذجة الطيفية Raman–NIR ومعايرة الغلوكوز.",
+        event2Tag1:"ملصق مؤتمر", event2Tag2:"مقبول", emptyState:"لا توجد ندوات مضافة بعد. ستظهر العروض الجديدة هنا.",
+        teamKicker:"الأشخاص", teamTitle:"فريق يتعلم من خلال البحث.", teamIntro:"يعمل طلابنا الباحثون في الذكاء الاصطناعي والأمن السيبراني والصحة والأنظمة المعتمدة على البيانات.",
+        piRole:"الباحث الرئيسي", piBio:"أستاذ مساعد في مدرسة الحوسبة بجامعة جورجيا الجنوبية. يطوّر بحثه ذكاءً اصطناعياً موثوقاً وأساليب حاسوبية للأمن والصحة والأحياء والأنظمة المستدامة.", piEmail:"راسل د. رانا",
+        studentTitle:"الطلاب الباحثون", studentIntro:"فريق من أربعة طلاب عبر ثلاثة مستويات دراسية.", phdLabel:"طلاب دكتوراه", mastersLabel:"طالب ماجستير", undergradLabel:"طالب جامعي", teamNote:"يمكن إضافة نبذات الطلاب وتفاصيل المشاريع مع نمو الفريق.",
+        contactKicker:"تواصل معنا", contactTitle:"هل لديك سؤال يستحق البحث؟", contactText:"نرحب بتواصل الطلاب المهتمين بالبحث والزملاء الراغبين في التعاون.", contactButton:"تواصل مع مختبر RANA",
+        footerLocation:"مدرسة الحوسبة · ستيتسبورو، جورجيا", backToTop:"العودة إلى الأعلى ↑"
+      },
+      hi: {
+        pageTitle:"RANA Lab | अगली पीढ़ी के अनुप्रयोगों के लिए विश्वसनीय AI",
+        metaDescription:"RANA Lab साइबर सुरक्षा, स्वास्थ्य, सतत कृषि, कम्प्यूटेशनल जीवविज्ञान और बुद्धिमान कंप्यूटिंग के लिए विश्वसनीय AI विकसित करता है।",
+        skip:"मुख्य सामग्री पर जाएँ", brandSubtitle:"अगली पीढ़ी के अनुप्रयोगों के लिए विश्वसनीय AI", languageLabel:"भाषा चुनें",
+        navResearch:"अनुसंधान", navPrograms:"कार्यक्रम", navShowcase:"प्रस्तुतियाँ", navTeam:"टीम", navContact:"संपर्क",
+        heroEyebrow:"विश्वसनीय AI · सुरक्षा · सेंसिंग", heroTitle:"अगली पीढ़ी के <em>अनुप्रयोगों के लिए विश्वसनीय AI।</em>",
+        heroCopy:"RANA Lab महत्वपूर्ण वास्तविक परिस्थितियों के लिए बुद्धिमान कंप्यूटिंग प्रणालियाँ विकसित और मूल्यांकित करता है। हम साइबर सुरक्षा, स्वास्थ्य, सतत कृषि और कम्प्यूटेशनल जीवविज्ञान की चुनौतियों पर AI, एल्गोरिदम डिज़ाइन और सावधानीपूर्वक मापन को जोड़ते हैं।",
+        heroButton1:"अनुसंधान देखें", heroButton2:"वार्ता और पोस्टर", figureLabel:"डेटा से भरोसेमंद निर्णय तक",
+        figureCenter1:"विश्वसनीय", figureSecurity:"सुरक्षा", figureHealth:"स्वास्थ्य", figureFarm:"कृषि", figureBio:"जीवविज्ञान",
+        heroFootLeft:"मशीन लर्निंग · विश्वसनीय एल्गोरिदम · अनुप्रयुक्त AI", heroFootRight:"स्कूल ऑफ कंप्यूटिंग · जॉर्जिया सदर्न यूनिवर्सिटी",
+        researchKicker:"अनुसंधान क्षेत्र", researchTitle:"वास्तविक दुनिया के क्षेत्रों में बुद्धिमान कंप्यूटिंग।",
+        researchIntro:"जटिल, अधूरे या अनिश्चित डेटा से निर्णय लेने में मदद के लिए हम AI, एल्गोरिदम और सिस्टम अनुसंधान को जोड़ते हैं।",
+        area1Tag:"०१ · कंप्यूटिंग", area1Title:"बुद्धिमान कंप्यूटिंग", area1Text:"विश्वसनीय विश्लेषण, पूर्वानुमान और निर्णय सहायता के लिए मशीन लर्निंग, डीप लर्निंग और जनरेटिव AI।",
+        area2Tag:"०२ · सुरक्षा", area2Title:"साइबर सुरक्षा और भरोसेमंद AI", area2Text:"AI-संचालित सुरक्षा, गोपनीयता संरक्षण, प्रतिकूल परीक्षण और दुरुपयोग का सामना करने वाली भरोसेमंद प्रणालियाँ।",
+        area3Tag:"०३ · स्वास्थ्य", area3Title:"स्मार्ट हेल्थ", area3Text:"स्वास्थ्य सेवा, बायोमेडिकल सूचना-विज्ञान, मल्टीमॉडल सेंसिंग और गैर-आक्रामक मापन के लिए AI।",
+        area4Tag:"०४ · कृषि", area4Title:"सतत कृषि", area4Text:"जुड़े हुए खेतों के डेटा से स्मार्ट फार्मिंग, सटीक कृषि और पर्यावरणीय बुद्धिमत्ता।",
+        area5Tag:"०५ · जीवविज्ञान", area5Title:"कम्प्यूटेशनल जीवविज्ञान", area5Text:"जटिल जीवन-विज्ञान डेटा से अंतर्दृष्टि के लिए बायोइन्फॉर्मेटिक्स, जीनोमिक्स और जैविक डेटा विज्ञान।",
+        area6Tag:"०६ · विधियाँ", area6Title:"एल्गोरिदम डिज़ाइन", area6Text:"लर्निंग, ऑप्टिमाइज़ेशन, डेटा एकीकरण और वास्तविक निर्णयों के लिए कुशल व मज़बूत एल्गोरिदम।",
+        crossTitle:"साझा आधार", crossText:"विश्वसनीय मापन · गोपनीयता-सचेत डिज़ाइन · पुनरुत्पाद्य मूल्यांकन · मानव-केंद्रित निर्णय",
+        programKicker:"अनुसंधान कार्यक्रम", programTitle:"वे प्रश्न जिनके उत्तर हम खोज रहे हैं।", programIntro:"हम कम्प्यूटेशनल विधियों को मापे गए संकेतों और सावधानीपूर्वक मूल्यांकन से जोड़ते हैं।",
+        programLabel1:"स्वास्थ्य", program1Title:"गैर-आक्रामक ग्लूकोज़ सेंसिंग", program1Text:"रमन–NIR डिजिटल ट्विन परियोजना भविष्य के गैर-आक्रामक ग्लूकोज़ मॉनिटरिंग के लिए स्पेक्ट्रल विशेषताओं, कैलिब्रेशन और अनिश्चितता का अध्ययन करती है।",
+        programLabel2:"मीडिया अखंडता", program2Title:"डीपफेक फॉरेंसिक्स और प्रामाणिकता", program2Text:"हम वास्तविक साझाकरण परिस्थितियों में बदले हुए मीडिया, अलग-अलग जनरेटरों में पहचान और मल्टीमॉडल साक्ष्य का अध्ययन करते हैं।",
+        programLabel3:"लचीली प्रणालियाँ", program3Title:"कनेक्टेड प्रणालियों की सुरक्षा", program3Text:"हमारा काम साइबर-भौतिक और सेंसर-समृद्ध वातावरण में प्रतिकूल परीक्षण, गोपनीयता और लचीले AI की पड़ताल करता है।",
+        approachKicker:"हमारी कार्य-पद्धति", approachTitle:"साक्ष्य और उसकी सीमाएँ स्पष्ट करें।", approachIntro:"जब मान्यताएँ, डेटा, अनिश्चितता और विफलता के मामले स्पष्ट हों, तभी परिणाम उपयोगी होता है। हम तकनीकी विकास के साथ अनुशासित मूल्यांकन करते हैं।",
+        principle1Label:"मापें", principle1Text:"मॉडल को सार्थक संकेतों और स्पष्ट लक्ष्यों पर आधारित करें।",
+        principle2Label:"परखें", principle2Text:"विभिन्न स्रोतों, संचालन स्थितियों और संभावित हमलों में परीक्षण करें।",
+        principle3Label:"समझाएँ", principle3Text:"मान्यताओं, अनिश्चितता और विफलता के तरीकों को समझने योग्य बनाएँ।",
+        showcaseKicker:"अनुसंधान प्रदर्शन", showcaseTitle:"वार्ताएँ, पोस्टर और सेमिनार।", showcaseIntro:"लैब की हालिया सम्मेलन प्रस्तुतियाँ और शोध पोस्टर।",
+        showcaseNote:"शैक्षणिक और सामुदायिक दर्शकों के साथ साझा किए गए शोध का बढ़ता रिकॉर्ड।",
+        filterAll:"सभी", filterTalks:"वार्ताएँ", filterPosters:"पोस्टर", filterSeminars:"सेमिनार",
+        event1Type:"शोध वार्ता + पोस्टर", event1Text:"गैर-आक्रामक सेंसिंग डिजिटल ट्विन के लिए स्पेक्ट्रल मॉडलिंग, ग्लूकोज़ कैलिब्रेशन और मापन अनिश्चितता पर शोध वार्ता और पोस्टर।",
+        event1Tag1:"सम्मेलन प्रस्तुति", event1Tag2:"वार्ता और पोस्टर",
+        event2Type:"स्वीकृत शोध पोस्टर", event2Text:"रमन–NIR स्पेक्ट्रल मॉडलिंग और ग्लूकोज़ कैलिब्रेशन के लिए भौतिकी-आधारित डिजिटल ट्विन का पोस्टर।",
+        event2Tag1:"सम्मेलन पोस्टर", event2Tag2:"स्वीकृत", emptyState:"अभी कोई सेमिनार प्रविष्टि नहीं है। नई प्रस्तुतियाँ यहाँ दिखाई जाएँगी।",
+        teamKicker:"लोग", teamTitle:"अनुसंधान से सीखती एक टीम।", teamIntro:"हमारे छात्र शोधकर्ता AI, साइबर सुरक्षा, स्वास्थ्य और डेटा-आधारित प्रणालियों पर काम करते हैं।",
+        piRole:"प्रधान अन्वेषक", piBio:"जॉर्जिया सदर्न यूनिवर्सिटी के स्कूल ऑफ कंप्यूटिंग में सहायक प्रोफेसर। उनका शोध सुरक्षा, स्वास्थ्य, जीवविज्ञान और सतत प्रणालियों के लिए विश्वसनीय AI और कम्प्यूटेशनल विधियाँ विकसित करता है।", piEmail:"डॉ. राणा को ईमेल करें",
+        studentTitle:"छात्र शोधकर्ता", studentIntro:"तीन डिग्री स्तरों में चार छात्र शोधकर्ताओं की टीम।", phdLabel:"पीएच.डी. छात्र", mastersLabel:"मास्टर’s छात्र", undergradLabel:"स्नातक छात्र", teamNote:"टीम के बढ़ने पर छात्र परिचय और परियोजना विवरण जोड़े जा सकते हैं।",
+        contactKicker:"संपर्क करें", contactTitle:"क्या आपके पास जाँचने योग्य प्रश्न है?", contactText:"अनुसंधान में रुचि रखने वाले छात्रों और सहयोग की संभावना तलाश रहे सहकर्मियों का स्वागत है।", contactButton:"RANA Lab से संपर्क",
+        footerLocation:"स्कूल ऑफ कंप्यूटिंग · स्टेट्सबोरो, जॉर्जिया", backToTop:"ऊपर जाएँ ↑"
+      },
+      es: {
+        pageTitle:"RANA Lab | IA confiable para aplicaciones de nueva generación",
+        metaDescription:"RANA Lab desarrolla IA confiable para ciberseguridad, salud, agricultura sostenible, biología computacional y computación inteligente.",
+        skip:"Ir al contenido", brandSubtitle:"IA confiable para aplicaciones de nueva generación", languageLabel:"Seleccionar idioma",
+        navResearch:"Investigación", navPrograms:"Programas", navShowcase:"Presentaciones", navTeam:"Equipo", navContact:"Contacto",
+        heroEyebrow:"IA confiable · Seguridad · Sensores", heroTitle:"IA confiable para <em>aplicaciones de nueva generación.</em>",
+        heroCopy:"RANA Lab desarrolla y evalúa sistemas de computación inteligente para contextos reales de gran importancia. Combinamos IA, diseño de algoritmos y mediciones rigurosas para abordar retos de ciberseguridad, salud, agricultura sostenible y biología computacional.",
+        heroButton1:"Explorar investigación", heroButton2:"Ver charlas y pósteres", figureLabel:"De los datos a decisiones confiables",
+        figureCenter1:"CONFIABLE", figureSecurity:"SEGURIDAD", figureHealth:"SALUD", figureFarm:"AGRICULTURA", figureBio:"BIOLOGÍA",
+        heroFootLeft:"Aprendizaje automático · Algoritmos confiables · IA aplicada", heroFootRight:"Escuela de Computación · Georgia Southern University",
+        researchKicker:"Áreas de investigación", researchTitle:"Computación inteligente en ámbitos del mundo real.",
+        researchIntro:"Combinamos IA, algoritmos e investigación de sistemas para tomar decisiones con datos complejos, incompletos o inciertos.",
+        area1Tag:"01 · COMPUTACIÓN", area1Title:"Computación inteligente", area1Text:"Aprendizaje automático, aprendizaje profundo e IA generativa para análisis, predicción y apoyo a decisiones confiables.",
+        area2Tag:"02 · SEGURIDAD", area2Title:"Ciberseguridad e IA confiable", area2Text:"Seguridad impulsada por IA, protección de la privacidad, pruebas adversariales y sistemas confiables resistentes al uso indebido.",
+        area3Tag:"03 · SALUD", area3Title:"Salud inteligente", area3Text:"IA para atención médica, informática biomédica, sensores multimodales y mediciones no invasivas.",
+        area4Tag:"04 · AGRICULTURA", area4Title:"Agricultura sostenible", area4Text:"Agricultura inteligente, agricultura de precisión e inteligencia ambiental basada en datos de campo conectados.",
+        area5Tag:"05 · BIOLOGÍA", area5Title:"Biología computacional", area5Text:"Bioinformática, genómica y ciencia de datos biológicos para comprender datos complejos de ciencias de la vida.",
+        area6Tag:"06 · MÉTODOS", area6Title:"Diseño de algoritmos", area6Text:"Algoritmos eficientes y robustos para aprendizaje, optimización, integración de datos y decisiones del mundo real.",
+        crossTitle:"Fundamentos comunes", crossText:"Medición confiable · Diseño que protege la privacidad · Evaluación reproducible · Decisiones centradas en las personas",
+        programKicker:"Programas de investigación", programTitle:"Preguntas que estamos investigando.", programIntro:"Conectamos métodos computacionales con señales medidas y una evaluación rigurosa.",
+        programLabel1:"SALUD", program1Title:"Sensado no invasivo de glucosa", program1Text:"Un gemelo digital Raman–NIR estudia características espectrales, calibración e incertidumbre para futuras mediciones no invasivas de glucosa.",
+        programLabel2:"INTEGRIDAD DE MEDIOS", program2Title:"Análisis forense de deepfakes y autenticidad", program2Text:"Analizamos medios manipulados, detección entre distintos generadores y evidencia multimodal en condiciones realistas de difusión.",
+        programLabel3:"SISTEMAS RESILIENTES", program3Title:"Seguridad para sistemas conectados", program3Text:"Exploramos pruebas adversariales, privacidad e IA resiliente en entornos ciberfísicos y con abundantes sensores.",
+        approachKicker:"Cómo trabajamos", approachTitle:"Hacemos visibles la evidencia y sus límites.", approachIntro:"Un resultado es útil cuando sus supuestos, datos, incertidumbre y fallos son claros. Combinamos desarrollo técnico con una evaluación rigurosa.",
+        principle1Label:"Medir", principle1Text:"Basar los modelos en señales significativas y objetivos bien definidos.",
+        principle2Label:"Poner a prueba", principle2Text:"Evaluar distintas fuentes, condiciones de operación y posibles ataques.",
+        principle3Label:"Explicar", principle3Text:"Hacer comprensibles los supuestos, la incertidumbre y los modos de fallo.",
+        showcaseKicker:"Muestra de investigación", showcaseTitle:"Charlas, pósteres y seminarios.", showcaseIntro:"Presentaciones recientes en conferencias y pósteres de investigación del laboratorio.",
+        showcaseNote:"Un registro creciente de investigaciones compartidas con audiencias académicas y comunitarias.",
+        filterAll:"Todo", filterTalks:"Charlas", filterPosters:"Pósteres", filterSeminars:"Seminarios",
+        event1Type:"Charla de investigación + póster", event1Text:"Charla y póster sobre modelado espectral, calibración de glucosa e incertidumbre de medición para un gemelo digital de sensado no invasivo.",
+        event1Tag1:"Presentación en conferencia", event1Tag2:"Charla y póster",
+        event2Type:"Póster de investigación aceptado", event2Text:"Póster sobre un gemelo digital basado en física para modelado espectral Raman–NIR y calibración de glucosa.",
+        event2Tag1:"Póster de conferencia", event2Tag2:"Aceptado", emptyState:"Aún no hay seminarios registrados. Las nuevas presentaciones aparecerán aquí.",
+        teamKicker:"Personas", teamTitle:"Un equipo que aprende investigando.", teamIntro:"Nuestro equipo estudiantil trabaja en IA, ciberseguridad, salud y sistemas basados en datos.",
+        piRole:"Investigador principal", piBio:"Profesor asistente en la Escuela de Computación de Georgia Southern University. Su investigación desarrolla IA confiable y métodos computacionales para seguridad, salud, biología y sistemas sostenibles.", piEmail:"Escribir al Dr. Rana",
+        studentTitle:"Estudiantes investigadores", studentIntro:"Un equipo de cuatro estudiantes en tres niveles académicos.", phdLabel:"Estudiantes de doctorado", mastersLabel:"Estudiante de maestría", undergradLabel:"Estudiante de grado", teamNote:"Los perfiles y proyectos de los estudiantes se añadirán a medida que crezca el equipo.",
+        contactKicker:"Conéctate con nosotros", contactTitle:"¿Tienes una pregunta que merece investigarse?", contactText:"Invitamos a estudiantes interesados en investigar y a colegas que quieran explorar colaboraciones a ponerse en contacto.", contactButton:"Contactar con RANA Lab",
+        footerLocation:"Escuela de Computación · Statesboro, Georgia", backToTop:"Volver arriba ↑"
+      }
+    };
+
+    const languageSelect = document.getElementById("language-select");
+    const allLanguageKeys = Object.keys(translations.en);
+    function setLanguage(language) {
+      const lang = translations[language] ? language : "en";
+      const messages = translations[lang];
+      document.documentElement.lang = lang;
+      document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+      document.title = messages.pageTitle;
+      languageSelect.setAttribute("aria-label", messages.languageLabel);
+      document.querySelector('meta[name="description"]').setAttribute("content", messages.metaDescription);
+      document.querySelector('meta[property="og:title"]').setAttribute("content", messages.pageTitle);
+      document.querySelector('meta[property="og:description"]').setAttribute("content", messages.metaDescription);
+      document.querySelectorAll("[data-i18n]").forEach(function(element) {
+        const key = element.getAttribute("data-i18n");
+        if (messages[key]) element.textContent = messages[key];
+      });
+      document.querySelectorAll("[data-i18n-html]").forEach(function(element) {
+        const key = element.getAttribute("data-i18n-html");
+        if (messages[key]) element.innerHTML = messages[key];
+      });
+      languageSelect.value = lang;
+      try { localStorage.setItem("rana-lab-language", lang); } catch (error) {}
+    }
+    let savedLanguage = "en";
+    try { savedLanguage = localStorage.getItem("rana-lab-language") || "en"; } catch (error) {}
+    languageSelect.addEventListener("change", function(event) { setLanguage(event.target.value); });
+    setLanguage(savedLanguage);
+
+    const filterButtons = Array.from(document.querySelectorAll("[data-filter]"));
+    const eventCards = Array.from(document.querySelectorAll(".event-card"));
+    const emptyState = document.getElementById("empty-state");
+    filterButtons.forEach(function(button) {
+      button.addEventListener("click", function() {
+        const selected = button.getAttribute("data-filter");
+        filterButtons.forEach(function(item) { item.setAttribute("aria-pressed", item === button ? "true" : "false"); });
+        let visible = 0;
+        eventCards.forEach(function(card) {
+          const categories = card.getAttribute("data-category").split(" ");
+          const show = selected === "all" || categories.includes(selected);
+          card.hidden = !show;
+          if (show) visible += 1;
+        });
+        emptyState.classList.toggle("visible", visible === 0);
+      });
+    });
+  </script>
 </body>
 </html>
+
